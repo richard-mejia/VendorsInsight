@@ -11,41 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323000128) do
-
-  create_table "solicituds", force: :cascade do |t|
-    t.date     "fecha"
-    t.integer  "vendedor_id"
-    t.string   "cliente"
-    t.integer  "disenador_id"
-    t.string   "linea"
-    t.string   "tipo"
-    t.boolean  "set_tallas"
-    t.boolean  "contramuestra"
-    t.string   "referencia"
-    t.integer  "talla"
-    t.boolean  "muestra_tela"
-    t.string   "nombre_tela"
-    t.boolean  "adjunto"
-    t.integer  "cantidad"
-    t.string   "especificacion"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "estado"
-  end
-
-  add_index "solicituds", ["disenador_id"], name: "index_solicituds_on_disenador_id"
-  add_index "solicituds", ["vendedor_id"], name: "index_solicituds_on_vendedor_id"
-
-  create_table "usuarios", force: :cascade do |t|
-    t.string   "nombre"
-    t.string   "apellido"
-    t.string   "cedula"
-    t.string   "clave"
-    t.string   "correo"
-    t.string   "tipo_usuario"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end

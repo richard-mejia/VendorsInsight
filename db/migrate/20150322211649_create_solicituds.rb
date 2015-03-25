@@ -2,9 +2,9 @@ class CreateSolicituds < ActiveRecord::Migration
   def change
     create_table :solicituds do |t|
       t.date :fecha
-      t.references :vendedor, index: true
+      t.integer :vendedor_id
       t.string :cliente
-      t.references :disenador, index: true
+      t.integer :disenador_id
       t.string :linea
       t.string :tipo
       t.boolean :set_tallas
@@ -19,7 +19,5 @@ class CreateSolicituds < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :solicituds, :usuarios
-    add_foreign_key :solicituds, :usuarios
   end
 end

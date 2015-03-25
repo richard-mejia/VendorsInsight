@@ -6,8 +6,7 @@ class CreateUsuarios < ActiveRecord::Migration
       t.string :cedula
       t.string :clave
       t.string :correo
-      t.string :tipo_usuario
-
+      t.string :tipo_usuario 
       t.timestamps null: false
     end
   end

@@ -1,0 +1,6 @@
+class AgregarEstado < ActiveRecord::Migration
+
+def change
+  add_column :solicitud
+end
+end

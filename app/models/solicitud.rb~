@@ -1,0 +1,9 @@
+class Solicitud < ActiveRecord::Base
+  belongs_to :usuarios
+
+
+  def vendedor
+	#return self.id
+  end
+
+end

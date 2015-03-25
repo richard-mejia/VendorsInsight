@@ -1,0 +1,87 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Atrás', solicituds_path %>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @solicitud.fecha %>
+</p>
+
+<p>
+  <strong>Vendedor:</strong>
+  <%= @solicitud.vendedor_id %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @solicitud.cliente %>
+</p>
+
+<p>
+  <strong>Disenador:</strong>
+  
+</p>
+
+<p>
+  <strong>Linea:</strong>
+  <%= @solicitud.linea %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @solicitud.tipo %>
+</p>
+
+<p>
+  <strong>Set tallas:</strong>
+  <%= @solicitud.set_tallas %>
+</p>
+
+<p>
+  <strong>Contramuestra:</strong>
+  <%= @solicitud.contramuestra %>
+</p>
+
+<p>
+  <strong>Referencia:</strong>
+  <%= @solicitud.referencia %>
+</p>
+
+<p>
+  <strong>Talla:</strong>
+  <%= @solicitud.talla %>
+</p>
+
+<p>
+  <strong>Muestra tela:</strong>
+  <%= @solicitud.muestra_tela %>
+</p>
+
+<p>
+  <strong>Nombre tela:</strong>
+  <%= @solicitud.nombre_tela %>
+</p>
+
+<p>
+  <strong>Adjunto:</strong>
+  <%= @solicitud.adjunto %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @solicitud.cantidad %>
+</p>
+
+<p>
+  <strong>Especificacion:</strong>
+  <%= @solicitud.especificacion %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <% if @solicitud.estado == 0 %>
+		<%= "pendiente" %>
+		<% end %>
+</p>
+
+
+

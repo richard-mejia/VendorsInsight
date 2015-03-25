@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-03-22
+  vendedor_id: 
+  cliente: MyString
+  disenador_id: 
+  linea: MyString
+  tipo: MyString
+  set_tallas: false
+  contramuestra: false
+  referencia: MyString
+  talla: 1
+  muestra_tela: false
+  nombre_tela: MyString
+  adjunto: false
+  cantidad: 1
+  especificacion: MyString
+
+two:
+  fecha: 2015-03-22
+  vendedor_id: 
+  cliente: MyString
+  disenador_id: 
+  linea: MyString
+  tipo: MyString
+  set_tallas: false
+  contramuestra: false
+  referencia: MyString
+  talla: 1
+  muestra_tela: false
+  nombre_tela: MyString
+  adjunto: false
+  cantidad: 1
+  especificacion: MyString

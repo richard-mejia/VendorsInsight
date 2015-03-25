@@ -1,0 +1,1 @@
+json.extract! @solicitud, :id, :fecha, :vendedor_id, :cliente, :disenador_id, :linea, :tipo, :set_tallas, :contramuestra, :referencia, :talla, :muestra_tela, :nombre_tela, :adjunto, :cantidad, :especificacion, :created_at, :updated_at

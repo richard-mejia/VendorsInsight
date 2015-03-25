@@ -1,0 +1,35 @@
+
+<p id="notice"><%= notice %></p>
+<p><%= link_to 'Atrás' , controller: 'login' %> </p>
+<hr>
+<hr>
+<h1>Lista solicitudes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nro</th>
+      <th>Cliente</th>
+      <th>Estado</th>
+      <th>Fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @solicituds.each do |solicitud| %>
+	<% if solicitud.vendedor_id == @vendedor.id %>
+      <tr>
+        <td><%= solicitud.id %></td>
+        <td><%= solicitud.cliente %></td>
+        <td><% if solicitud.estado == 0 %>
+		<%=	 "pendiente"%>
+		<% end %></td>
+        <td><%= solicitud.fecha %></td>
+        <td><%= link_to 'Ver', solicitud %></td>
+      </tr>
+	<% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>

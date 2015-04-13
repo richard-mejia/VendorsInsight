@@ -4,7 +4,7 @@ class Usuario < ActiveRecord::Base
   validates :correo, uniqueness: true
   
     def self.autenticar(cedula, clave)
-		user =Usuario.find_by cedula: cedula
+		usuario =Usuario.find_by cedula: cedula
 		
 		if usuario
 			if usuario.clave == clave

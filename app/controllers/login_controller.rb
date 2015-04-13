@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class LoginController < ApplicationController
   def index	
   end
@@ -11,8 +12,8 @@ class LoginController < ApplicationController
       @vendedor = sesion
       render 'index'
     else
-      
-      render 'autenticar'
+      flash[:danger] = 'Clave o cédula no coinciden'
+      render 'autenticar'      
     end
   end
 

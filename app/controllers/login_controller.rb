@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 class LoginController < ApplicationController
+    before_filter :autenticar
   def index	
   end
   

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class LoginController < ApplicationController
-    before_filter :autenticar
+  include LoginHelper
+  before_filter :autenticar
   def index	
   end
   
@@ -10,8 +11,10 @@ class LoginController < ApplicationController
   def create
     sesion = Usuario.autenticar(params[:login][:cedula],params[:login][:clave])
     if sesion
-      @vendedor = sesion
+      $sesion = sesion
+      if sesion.tipo_usuario.eql? "Vendedor"
       render 'index'
+      end
     else
       flash[:danger] = 'Clave o cédula no coinciden'
       render 'autenticar'      
@@ -19,6 +22,8 @@ class LoginController < ApplicationController
   end
 
   def destroy
+    $sesion = nil
+    render 'autenticar'
   end
-  
+
 end

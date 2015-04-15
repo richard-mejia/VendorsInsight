@@ -15,6 +15,7 @@ class LoginController < ApplicationController
     if sesion
       session[:usuario_id] = sesion.id
       session[:tipo_usuario] = sesion.tipo_usuario
+      session[:logueado] = true
       if sesion.tipo_usuario.eql? "Vendedor"
         @vendedor = sesion
       render 'index'
@@ -26,7 +27,7 @@ class LoginController < ApplicationController
   end
 
   def destroy
-    $sesion = nil
+    session[:logueado] = false
     render 'autenticar'
   end
 

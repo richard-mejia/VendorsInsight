@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize
-      if session[:usuario] == nil
+      unless session[:logueado]
             flash[:error] = "acceso no autorizado"
             redirect_to login_path
             false

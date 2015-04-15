@@ -16,7 +16,7 @@ class LoginController < ApplicationController
       #$sesion = sesion
       session[:usuario] = sesion 
       if sesion.tipo_usuario.eql? "Vendedor"
-        @vendedor = $sesion
+        @vendedor = session[:usuario]
       render 'index'
       end
     else

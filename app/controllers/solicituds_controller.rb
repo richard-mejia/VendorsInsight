@@ -6,20 +6,20 @@ class SolicitudsController < ApplicationController
   # GET /solicituds.json
   def index
     @solicituds = Solicitud.all
-    @vendedor = $sesion    
+    @vendedor = session[:usuario]   
   end
 
   # GET /solicituds/1
   # GET /solicituds/1.json
   def show
     
-    @vendedor = $sesion   
+    @vendedor = session[:usuario]   
   end
 
   # GET /solicituds/new
   def new
     @solicitud = Solicitud.new
-    @vendedor = $sesion
+    @vendedor = session[:usuario]
   end
 
   # GET /solicituds/1/edit
@@ -30,7 +30,7 @@ class SolicitudsController < ApplicationController
   # POST /solicituds.json
   def create
     @solicitud = Solicitud.new(solicitud_params)
-    @vendedor = $sesion
+    @vendedor = session[:usuario]
     @solicitud.vendedor_id = @vendedor.id
     @solicitud.estado = 0
     @solicitud.fecha = Date.today

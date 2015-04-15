@@ -6,6 +6,8 @@ class SolicitudsController < ApplicationController
   # GET /solicituds.json
   def index
     @solicituds = Solicitud.all
+      puts "Dato"
+      puts session[:usuario]
     @vendedor = session[:usuario]   
   end
 

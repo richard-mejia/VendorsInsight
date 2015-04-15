@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
      # end
      # return true
    # end
-    
+    def get_usuario(id) 
+      @usuario = Usuario.find(id)
+      return @usuario
+    end
+
     def authorize
       if session[:usuario] == nil
             flash[:error] = "acceso no autorizado"

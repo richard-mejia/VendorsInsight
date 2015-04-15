@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 class LoginController < ApplicationController
   include LoginHelper
-  before_filter :autenticar
+  before_filter :authorize, :except => [:autenticar, :create]
+  
   def index
     @vendedor = $sesion
   end

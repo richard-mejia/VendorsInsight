@@ -4,7 +4,7 @@ class LoginController < ApplicationController
   before_filter :authorize, :except => [:autenticar, :create]
   
   def index
-    @vendedor = $sesion
+    @vendedor = session[:usuario]
   end
   
   def autenticar
@@ -13,7 +13,8 @@ class LoginController < ApplicationController
   def create
     sesion = Usuario.autenticar(params[:login][:cedula],params[:login][:clave])
     if sesion
-      $sesion = sesion
+      #$sesion = sesion
+      session[:usuario] = sesion 
       if sesion.tipo_usuario.eql? "Vendedor"
         @vendedor = $sesion
       render 'index'

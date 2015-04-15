@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :solicituds
-
   resources :usuarios
+  get    'index' => 'login#index'
   get    'login'   => 'login#autenticar'
   post   'login'   => 'login#create'
-  delete 'logout'  => 'login#destroy'
-  resources :login
+  get 'logout'  => 'login#destroy'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

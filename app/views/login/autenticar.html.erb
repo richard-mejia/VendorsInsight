@@ -30,75 +30,44 @@
 
   <body>
 
-    <div class="container">
+<div class="container">
 
       <!-- Static navbar -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Project name</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-              <li><a href="../navbar-static-top/">Static top</a></li>
-              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
+      
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Log in</h1>
 
-<% flash.each do |type, message| %>
+
+
+
+
+
+<center>      
+<div class="jumbotron">
+ <p> <%= image_tag "logo.png", width:220, height:160 %> </p> 
+
+ <% flash.each do |type, message| %>
   <div class="alert <%= bootstrap_class_for(:error) %> fade in">
     <button class="close" data-dismiss="alert">×</button>
     <%= message %>
   </div>
-<% end %>
+ <% end %>
 
-<div class="row">
+ <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:login, url: login_path) do |f| %>
+      
+      <%= f.text_field :cedula, class: 'form-control', placeholder: "Cédula" %>
 
-      <%= f.label :cedula %>
-      <%= f.text_field :cedula, class: 'form-control' %>
-
-      <%= f.label :clave %>
-      <%= f.password_field :clave, class: 'form-control' %>
+      <%= f.label :" " %>
+      <%= f.password_field :clave, class: 'form-control', placeholder: "Clave" %>
       <hr>
-      <%= f.submit "Iniciar", class: "btn btn-primary" %>
-    <% end %>
-          
-          
-      </div>
+      <%= f.submit "Ingresar", class: "btn btn-primary"  %>
+    <% end %>   
+  </div>
+</center>
 
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript

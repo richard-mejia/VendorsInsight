@@ -25,3 +25,30 @@
 	background-color: #E62323 !important;
 	color: #FFFFFF !important;
 }
+
+.form-control{
+  width:45%;
+  height: 70%;
+}
+
+.btn{
+	background-color: #E62323 !important;
+	color: #FFFFFF !important;
+	width: 220px;
+   height: 48px;
+}
+
+.check_box{
+	color: #808080 !important;
+}
+
+.text_field{
+	width: 220px;
+	height: 38px;
+}
+
+.text_area{
+	width: 220px;
+	height: 60px;
+}
+

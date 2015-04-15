@@ -56,6 +56,7 @@
   <tbody>
     <% @solicituds.each do |solicitud| %>
 	<% if solicitud.vendedor_id == @vendedor[:id] %>
+      <% puts solicitud %>
       <tr>
         <td HEIGHT="40"><%= solicitud.id%></td>
         <td><%= solicitud.cliente %></td>

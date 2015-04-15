@@ -6,8 +6,6 @@ class SolicitudsController < ApplicationController
   # GET /solicituds.json
   def index
     @solicituds = Solicitud.all
-      puts "Dato"
-      puts session[:usuario]
     @vendedor = session[:usuario]   
   end
 
@@ -33,7 +31,7 @@ class SolicitudsController < ApplicationController
   def create
     @solicitud = Solicitud.new(solicitud_params)
     @vendedor = session[:usuario]
-    @solicitud.vendedor_id = @vendedor.id
+    @solicitud.vendedor_id = @vendedor[:id]
     @solicitud.estado = 0
     @solicitud.fecha = Date.today
     respond_to do |format|

@@ -2,7 +2,8 @@
 class LoginController < ApplicationController
   include LoginHelper
   before_filter :autenticar
-  def index	
+  def index
+    @vendedor = $sesion
   end
   
   def autenticar
@@ -13,6 +14,7 @@ class LoginController < ApplicationController
     if sesion
       $sesion = sesion
       if sesion.tipo_usuario.eql? "Vendedor"
+        @vendedor = $sesion
       render 'index'
       end
     else

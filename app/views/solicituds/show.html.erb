@@ -79,12 +79,11 @@
 
 <p>
   <strong>Contramuestra:</strong>
-  <% if @solicitud.contramuestra %>
+ <% if @solicitud.contramuestra %>
   <%= "Si" %>
   <% else %>
   <%= "No" %>
   <% end %>
-
 </p>
 
 <p>
@@ -114,7 +113,11 @@
 
 <p>
   <strong>Adjunto:</strong>
-  <%= @solicitud.adjunto %>
+   <% if @solicitud.adjunto %>
+  <%= "Si" %>
+  <% else %>
+  <%= "No" %>
+  <% end %>
 </p>
 
 <p>
@@ -122,11 +125,13 @@
   <%= @solicitud.cantidad %>
 </p>
 
+<strong> 
 <p>
   <strong>Especificaciones:</strong>
 </p>
-<p>
- <textarea><%= @solicitud.especificacion %></textarea>
+
+<p> 
+ <textarea readonly><%= @solicitud.especificacion %></textarea>
 </p>
 
 <p>
@@ -151,6 +156,3 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
-
-

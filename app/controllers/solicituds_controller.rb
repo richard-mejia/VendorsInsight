@@ -11,8 +11,7 @@ class SolicitudsController < ApplicationController
 
   # GET /solicituds/1
   # GET /solicituds/1.json
-  def show
-    
+  def show    
     @vendedor = get_usuario(session[:usuario_id])   
   end
 

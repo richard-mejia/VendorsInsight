@@ -1,8 +1,12 @@
 class UsuariosController < ApplicationController
-  before_action :set_usuario, only: [:show, :edit, :update, :destroy]
+  before_action :set_usuario, only: [:show, :edit, :update, :destroy, :solicitudes_administrador]
   before_filter :authorize
   # GET /usuarios
   # GET /usuarios.json
+  
+  def solicitudes_administrador
+    @solicitudes = Solicitud.all
+  end
   def index
     @usuarios = Usuario.all
   end
@@ -64,7 +68,7 @@ class UsuariosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario
-      @usuario = Usuario.find(params[:id])
+      @usuario = get_usuario(session[:usuario_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

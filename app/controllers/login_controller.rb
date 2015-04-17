@@ -6,6 +6,10 @@ class LoginController < ApplicationController
   def index
     @vendedor = get_usuario(session[:usuario_id])
   end
+
+  def index_administrador
+    @administrador = get_usuario(session[:usuario_id])
+  end
   
   def autenticar
   end
@@ -18,7 +22,10 @@ class LoginController < ApplicationController
       session[:logueado] = true
       if sesion.tipo_usuario.eql? "Vendedor"
         @vendedor = sesion
-      render 'index'
+        render 'index'
+      elsif sesion.tipo_usuario.eql? "Administrador"
+        @administrador = sesion
+        render 'index_administrador'
       end
     else
       flash[:danger] = 'Clave o cédula no coinciden'

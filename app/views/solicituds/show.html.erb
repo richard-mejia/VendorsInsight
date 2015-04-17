@@ -49,18 +49,13 @@
 </p>
 
 <p>
-  <strong>Vendedor:</strong>
-  <%= @solicitud.vendedor_id %>
-</p>
-
-<p>
   <strong>Cliente:</strong>
   <%= @solicitud.cliente %>
 </p>
 
 <p>
   <strong>Disenador:</strong>
-  
+  <%= @solicitud.disenador_id %>
 </p>
 
 <p>
@@ -75,12 +70,21 @@
 
 <p>
   <strong>Set tallas:</strong>
-  <%= @solicitud.set_tallas %>
+  <% if @solicitud.set_tallas %>
+  <%= "Si" %>
+  <% else %>
+  <%= "No" %>
+  <% end %>
 </p>
 
 <p>
   <strong>Contramuestra:</strong>
-  <%= @solicitud.contramuestra %>
+  <% if @solicitud.contramuestra %>
+  <%= "Si" %>
+  <% else %>
+  <%= "No" %>
+  <% end %>
+
 </p>
 
 <p>
@@ -95,7 +99,12 @@
 
 <p>
   <strong>Muestra tela:</strong>
-  <%= @solicitud.muestra_tela %>
+  <% if @solicitud.muestra_tela %>
+  <%= "Si" %>
+  <% else %>
+  <%= "No" %>
+  <% end %>
+
 </p>
 
 <p>
@@ -114,8 +123,10 @@
 </p>
 
 <p>
-  <strong>Especificacion:</strong>
-  <%= @solicitud.especificacion %>
+  <strong>Especificaciones:</strong>
+</p>
+<p>
+ <textarea><%= @solicitud.especificacion %></textarea>
 </p>
 
 <p>

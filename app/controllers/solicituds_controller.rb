@@ -5,9 +5,8 @@ class SolicitudsController < ApplicationController
   # GET /solicituds
   # GET /solicituds.json
   def index
-    @solicituds = Solicitud.all
-    @vendedor = get_usuario(session[:usuario_id]) 
-    
+    @vendedor = get_usuario(session[:usuario_id])
+    @solicituds = Solicitud.where(vendedor_id: @vendedor.id)
   end
 
   # GET /solicituds/1

@@ -1,5 +1,4 @@
-
-<nav class="navbar navbar-default navbar-fixed-top">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -9,8 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-	  <a class="navbar-brand"href="../inicio_vendedor"><i class="fa fa-reply"></i></a>
-          <a class="navbar-brand" href="#"><%= @vendedor[:nombre] %> <%= @vendedor[:apellido] %></a>
+          <a class="navbar-brand" href="#"><%= @administrador.nombre %> <%= @administrador.apellido %></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -27,50 +25,31 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a <%= link_to "salir", :controller => "login", :action => "destroy"%></a></li>
+            <li><a <%= link_to "Salir", :controller => "login", :action => "destroy"%></a></li>
             </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-<hr>
-<hr><center>
-<h1>Lista solicitudes</h1></center>
+
     <div class="container">
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-  
-  
+<!-- Main component for a primary marketing message or call to action --> 
+        <div class="jumbotron"> 
+            <center> 
+                <hr>
+		<h1>Bienvenido <%= @administrador.nombre %> </h1>
+                <hr>
+                <hr>
+                <a class="btn btn-lg btn-primary" id="crearSol" href=" solicituds/new " role="button">Crear Solicitud</a> 
+             </p>
+            <hr> 
+            <p>
+                <a class="btn btn-lg btn-primary" id="verSol" href=" solicituds " role="button">Ver Solicitudes</a> 
+            </p> 
+            <p> <%= image_tag "maleta.jpg", width:200, height:160 %> </p> 
+            </center> </div>
 
-<table WIDTH="100%">
-  <thead>
-    <tr>
-      <th>Nro</th>
-      <th>Cliente</th>
-      <th>Estado</th>
-      <th>Fecha</th>
-      <th colspan="3"></th>
-          </tr>
-  </thead>
-
-  <tbody>
-    <% @solicituds.each do |solicitud| %>
-      <tr>
-        <td HEIGHT="40"><%= solicitud.id%></td>
-        <td><%= solicitud.cliente %></td>
-        <td><% if solicitud.estado == 0 %>
-		<%=	 "pendiente"%>
-		<% end %></td>
-        <td><%= solicitud.fecha %></td>
-        <td><%= link_to '', solicitud, class: 'fa fa-search' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-                                     
-      </div>
-                                     
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -80,5 +59,5 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-<p id="notice"><%= notice %></p>
+  
 

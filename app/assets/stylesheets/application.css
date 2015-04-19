@@ -27,8 +27,8 @@
 }
 
 .form-control{
-  width:45%;
-  height: 70%;
+  width: 220px;
+  height: 48px;
 }
 
 .btn{
@@ -43,8 +43,8 @@
 }
 
 .text_field{
-	width:45%;
-  height: 70%;
+	width: 220px;
+	height: 38px;
 }
 
 .text_area{

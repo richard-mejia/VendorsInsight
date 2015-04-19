@@ -8,6 +8,7 @@ class UsuariosController < ApplicationController
     @solicitudes = Solicitud.all
   end
   def index
+       @administrador = get_usuario(session[:usuario_id])  
     @usuarios = Usuario.all
   end
 
@@ -18,18 +19,20 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/new
   def new
+     @administrador = get_usuario(session[:usuario_id])  
     @usuario = Usuario.new
+   
   end
 
   # GET /usuarios/1/edit
   def edit
+       @administrador = get_usuario(session[:usuario_id])  
   end
 
   # POST /usuarios
   # POST /usuarios.json
   def create
     @usuario = Usuario.new(usuario_params)
-
     respond_to do |format|
       if @usuario.save
         format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }

@@ -55,60 +55,78 @@
       <td><font size="5"><%= @solicitud.fecha %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Cliente:</font></strong></td>
+      <td><font size="5"><%= @solicitud.cliente %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Diseñador:</font></strong></td>
+      <td><font size="5"><%= @solicitud.disenador_id %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Línea:</font></strong></td>
+      <td><font size="5"><%= @solicitud.linea %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Tipo:</font></strong></td>
+      <td><font size="5"><%= @solicitud.tipo %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Set Tallas:</font></strong></td>
+      <td><font size="5"><% if @solicitud.set_tallas %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Contramuestra:</font></strong></td>
+      <td><font size="5"><% if @solicitud.contramuestra %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Referencia:</font></strong></td>
+      <td><font size="5"><%= @solicitud.referencia %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Talla:</font></strong></td>
+      <td><font size="5"><%= @solicitud.talla %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Muestra Tela:</font></strong></td>
+      <td><font size="5"><% if @solicitud.muestra_tela %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Nombre Tela:</font></strong></td>
+      <td><font size="5"><%= @solicitud.nombre_tela %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Adjunto:</font></strong></td>
+      <td><font size="5"><% if @solicitud.adjunto %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Cantidad:</font></strong></td>
+      <td><font size="5"><%= @solicitud.cantidad %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Especificaciones:</font></strong></td>
+      <td><font size="5"><%= @solicitud.especificacion %></font></td>
     </tr>
     <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
+      <td ><strong><font size="5">Estado:</font></strong></td>
+      <td><font size="5"><% if @solicitud.estado == 0 %>
+                         <%= "pendiente" %>
+                         <% end %></font></td>
     </tr>
     
 
@@ -122,110 +140,12 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @solicitud.fecha %>
-</p>
-
-<p>
-  <strong>Cliente:</strong>
-  <%= @solicitud.cliente %>
-</p>
-
-<p>
-  <strong>Disenador:</strong>
-  <%= @solicitud.disenador_id %>
-</p>
-
-<p>
-  <strong>Linea:</strong>
-  <%= @solicitud.linea %>
-</p>
-
-<p>
-  <strong>Tipo:</strong>
-  <%= @solicitud.tipo %>
-</p>
-
-<p>
-  <strong>Set tallas:</strong>
-  <% if @solicitud.set_tallas %>
-  <%= "Si" %>
-  <% else %>
-  <%= "No" %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Contramuestra:</strong>
- <% if @solicitud.contramuestra %>
-  <%= "Si" %>
-  <% else %>
-  <%= "No" %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Referencia:</strong>
-  <%= @solicitud.referencia %>
-</p>
-
-<p>
-  <strong>Talla:</strong>
-  <%= @solicitud.talla %>
-</p>
-
-<p>
-  <strong>Muestra tela:</strong>
-  <% if @solicitud.muestra_tela %>
-  <%= "Si" %>
-  <% else %>
-  <%= "No" %>
-  <% end %>
-
-</p>
-
-<p>
-  <strong>Nombre tela:</strong>
-  <%= @solicitud.nombre_tela %>
-</p>
-
-<p>
-  <strong>Adjunto:</strong>
-   <% if @solicitud.adjunto %>
-  <%= "Si" %>
-  <% else %>
-  <%= "No" %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Cantidad:</strong>
-  <%= @solicitud.cantidad %>
-</p>
-
-<strong> 
-<p>
-  <strong>Especificaciones:</strong>
-</p>
-
-<p> 
- <textarea readonly><%= @solicitud.especificacion %></textarea>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <% if @solicitud.estado == 0 %>
-		<%= "pendiente" %>
-		<% end %>
-</p>
-
 
 
                                      
       </div>
                                      
-    </div> <!-- /container -->
+</div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript

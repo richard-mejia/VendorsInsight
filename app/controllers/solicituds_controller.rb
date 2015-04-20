@@ -37,6 +37,7 @@ class SolicitudsController < ApplicationController
       if @solicitud.save
         format.html { redirect_to @solicitud, notice: 'Solicitud realizada exitosamente.' }
         format.json { render :show, status: :created, location: @solicitud }
+          UserMailer.confirmar_solicitud().deliver
       else
         format.html { render :new }
         format.json { render json: @solicitud.errors, status: :unprocessable_entity }

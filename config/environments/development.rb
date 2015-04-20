@@ -14,7 +14,21 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+    
+  #change mail delvery to either :smtp, :sendmail, :file, :test
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        address: "smpt.live.com",
+        port: 587,
+        domain: 'heroku.com',
+        authentication: "plain",
+        enable_starttls_auto: true,
+        user_name: ENV["santivaz852@hotmail.com"],
+        password: ENV["santiago9480"]
+    } 
+    
+        
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

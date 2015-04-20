@@ -19,13 +19,13 @@ Rails.application.configure do
   #change mail delvery to either :smtp, :sendmail, :file, :test
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-        address: "smpt.live.com",
+        address: "smpt.sendgrid.net",
         port: 587,
-        domain: 'heroku.com',
+        domain: "heroku.com",
         authentication: "plain",
         enable_starttls_auto: true,
-        user_name: ENV["santivaz852@hotmail.com"],
-        password: ENV["santiago9480"]
+        user_name: ENV["santivasquez"],
+        password: ENV["santiago12345"]
     } 
     
         

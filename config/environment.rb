@@ -7,7 +7,7 @@ Rails.application.initialize!
  # config.action_mailer.raise_delivery_errors = true
 
  ActionMailer::Base.smtp_settings = {
-  :user_name => 'sntivasquez',
+  :user_name => 'santivasquez',
   :password => 'santiago12345',
   :domain => 'heroku.com',
   :address => 'smtp.sendgrid.net',

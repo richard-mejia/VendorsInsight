@@ -16,7 +16,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
     
-  #change mail delvery to either :smtp, :sendmail, :file, :test
+ #change mail delvery to either :smtp, :sendmail, :file, :test
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
         address: "smpt.sendgrid.net",
@@ -24,7 +24,7 @@ Rails.application.configure do
         domain: "heroku.com",
         authentication: "plain",
         enable_starttls_auto: true,
-        user_name: ENV["santivasquez"],
+        user_name: ENV["app35204062@heroku.com"],
         password: ENV["santiago12345"]
     } 
     

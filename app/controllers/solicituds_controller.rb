@@ -35,9 +35,10 @@ class SolicitudsController < ApplicationController
     @solicitud.fecha = Date.today
     respond_to do |format|
       if @solicitud.save
+        UserMailer.confirmar_solicitud(@vendedor).deliver
         format.html { redirect_to @solicitud, notice: 'Solicitud realizada exitosamente.' }
         format.json { render :show, status: :created, location: @solicitud }
-          UserMailer.confirmar_solicitud(@vendedor).deliver
+         
       else
         format.html { render :new }
         format.json { render json: @solicitud.errors, status: :unprocessable_entity }

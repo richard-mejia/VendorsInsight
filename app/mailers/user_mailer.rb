@@ -9,6 +9,6 @@ class UserMailer < ApplicationMailer
       @usuario = usuario
     @greeting = "Hi"
 
-    mail to: "santivaz852@hotmail.com", subject: "solicitud creada"
+    mail ( :to => 'santivaz852@hotmail.com', :subject => 'solicitud creada')
   end
 end

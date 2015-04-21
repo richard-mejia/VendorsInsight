@@ -17,6 +17,7 @@ class SolicitudsController < ApplicationController
 
   # GET /solicituds/new
   def new
+    @archivo = Attachment.new
     @solicitud = Solicitud.new
     @vendedor = get_usuario(session[:usuario_id])
   end
@@ -28,11 +29,17 @@ class SolicitudsController < ApplicationController
   # POST /solicituds
   # POST /solicituds.json
   def create
+   
     @solicitud = Solicitud.new(solicitud_params)
     @vendedor = get_usuario(session[:usuario_id])
     @solicitud.vendedor_id = @vendedor.id
     @solicitud.estado = 0
     @solicitud.fecha = Date.today
+    @archivo = Attachment.new(attachment_params)
+    if solicitud_params[:adjunto]
+      @archivo.save
+      solicitud.archivo_id = @archivo.id
+    end
     respond_to do |format|
       if @solicitud.save
         UserMailer.confirmar_solicitud(@vendedor).deliver_now

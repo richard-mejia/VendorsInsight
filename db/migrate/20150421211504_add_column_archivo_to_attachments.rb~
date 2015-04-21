@@ -1,0 +1,4 @@
+class AddColumnArchivoToAttachments < ActiveRecord::Migration
+  def change
+  end
+end

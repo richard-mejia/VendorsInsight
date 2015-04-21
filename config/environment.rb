@@ -4,7 +4,8 @@ require File.expand_path('../application', __FILE__)
 # Initialize the Rails application.
 Rails.application.initialize!
 # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+ # config.action_mailer.raise_delivery_errors = true
+
  ActionMailer::Base.smtp_settings = {
   :user_name => 'santivasquez',
   :password => 'santiago12345',

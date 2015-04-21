@@ -35,7 +35,7 @@ class SolicitudsController < ApplicationController
     @solicitud.fecha = Date.today
     respond_to do |format|
       if @solicitud.save
-        UserMailer.confirmar_solicitud(@vendedor).deliver
+        UserMailer.confirmar_solicitud(@vendedor).deliver_now
         format.html { redirect_to @solicitud, notice: 'Solicitud realizada exitosamente.' }
         format.json { render :show, status: :created, location: @solicitud }
          

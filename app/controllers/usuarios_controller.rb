@@ -15,6 +15,8 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
+       @administrador = get_usuario(session[:usuario_id])  
+    @usuarios = Usuario.all
   end
 
   # GET /usuarios/new

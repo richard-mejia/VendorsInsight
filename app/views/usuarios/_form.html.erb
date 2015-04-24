@@ -54,30 +54,30 @@
 
   <div class="field">
     <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
+    <%= f.text_field :nombre, class: 'text_field' %>
   </div>
   <div class="field">
     <%= f.label :apellido %><br>
-    <%= f.text_field :apellido %>
+    <%= f.text_field :apellido, class: 'text_field' %>
   </div>
   <div class="field">
     <%= f.label :cedula %><br>
-    <%= f.text_field :cedula %>
+    <%= f.text_field :cedula, class: 'text_field'  %>
   </div>
   <div class="field">
     <%= f.label :clave %><br>
-    <%= f.text_field :clave %>
+    <%= f.text_field :clave, class: 'text_field'  %>
   </div>
   <div class="field">
     <%= f.label :correo %><br>
-    <%= f.text_field :correo %>
+    <%= f.text_field :correo, class: 'text_field'  %>
   </div>
   <div class="field">
     <%= f.label :tipo_usuario %><br>
-    <%= f.text_field :tipo_usuario %>
+    <%= f.text_field :tipo_usuario, class: 'text_field'  %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear Usuario", class: "btn btn-lg btn-primary"  %>
   </div>
 <% end %>
 

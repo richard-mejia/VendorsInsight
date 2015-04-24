@@ -49,16 +49,20 @@
       </ul>
     </div>
   <% end %>  <div class="field">
-    <%= f.text_field :cliente, class: 'text_field', placeholder: "Cliente" %>
+    <%= f.label :Cliente %><br>
+    <%= f.text_field :cliente, class: 'text_field'%>
   </div>
   <div class="field">
-    <%= f.text_field :referencia, class: 'text_field', placeholder: "Referencia" %>
+    <%= f.label :Referencia %><br>
+    <%= f.text_field :referencia, class: 'text_field'%>
   </div>
   <div class="field">
-    <%= f.text_field :linea, class: 'text_field', placeholder: "Línea" %>
+    <%= f.label :Línea %><br>
+    <%= f.text_field :linea, class: 'text_field'%>
   </div>
   <div class="field">
-    <%= f.text_field :tipo, class: 'text_field', placeholder: "Tipo" %>
+    <%= f.label :Tipo %><br>
+    <%= f.text_field :tipo, class: 'text_field'%>
   </div>
   <div class="field">
     <%= f.label :set_tallas, class: 'check_box' %><br>
@@ -70,20 +74,24 @@
   </div>
   
   <div class="field">
-    <%= f.number_field :talla, class: 'text_field', placeholder: "Talla" %>
+    <%= f.label :Talla %><br>
+    <%= f.number_field :talla, class: 'text_field'%>
   </div>
   <div class="field">
     <%= f.label :muestra_tela, class: 'check_box' %><br>
     <%= f.check_box :muestra_tela %>
   </div>
   <div class="field">
-    <%= f.text_field :nombre_tela, class: 'text_field', placeholder: "Nombre Tela" %>
+    <%= f.label :nombre_tela%><br>
+    <%= f.text_field :nombre_tela, class: 'text_field'%>
   </div>    
   <div class="field">
-    <%= f.text_field :disenador_id,class: 'text_field', placeholder: "Diseñador" %>
+    <%= f.label :Diseñador %><br>
+    <%= f.text_field :disenador_id,class: 'text_field'%>
   </div>
   <div class="field">
-    <%= f.number_field :cantidad, class: 'text_field', placeholder: "Cantidad" %>
+    <%= f.label :Cantidad %><br>
+    <%= f.number_field :cantidad, class: 'text_field'%>
   </div>
   
   <div class="field">
@@ -92,7 +100,8 @@
   </div>
   
   <div class="field">
-    <%= f.text_area :especificacion, class: 'text_area', placeholder: "Observaciones"%>
+    <%= f.label :Observaciones %><br>
+    <%= f.text_area :especificacion, class: 'text_area'%>
   </div>
   <div class="actions">
     <%= f.submit "Enviar Solicitud", class: "btn btn-lg btn-primary" %>

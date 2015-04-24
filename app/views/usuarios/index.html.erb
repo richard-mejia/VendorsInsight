@@ -43,41 +43,52 @@
   <p id="notice"><%= notice %></p>
 
 
-<center>
-<table>
-  <thead>
+
+
+
+
+
+<div class="table-responsive">
+<table class="table" WIDTH="100%" >
+  <thead bgcolor = "cccccc">
     <tr>
+        
       <th>Nombre</th>
       <th>Apellido</th>
       <th>Cedula</th>
-      
       <th>Correo</th>
-      <th>Tipo usuario</th>
+      <th>Tipo Usuario</th>
       <th colspan="3"></th>
-    </tr>
+          
+      </tr>
   </thead>
 
   <tbody>
     <% @usuarios.each do |usuario| %>
       <tr>
-        <td><%= usuario.nombre %></td>
+        <td HEIGHT="40"><%= usuario.nombre%></td>
         <td><%= usuario.apellido %></td>
         <td><%= usuario.cedula %></td>
-        
         <td><%= usuario.correo %></td>
         <td><%= usuario.tipo_usuario %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', usuario, class: 'fa fa-search' %></td>
+        <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Está seguro que desea eliminar el usuario?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-          
-<br>
+          </div>                          
+      </div>
 
-<%= link_to 'Nuevo Usuario', new_usuario_path %>
-          </center>
+
+
+
+
+
+
+
+
 
 
                                      

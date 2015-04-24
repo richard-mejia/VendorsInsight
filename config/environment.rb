@@ -5,7 +5,7 @@ require File.expand_path('../application', __FILE__)
 Rails.application.initialize!
 # Don't care if the mailer can't send.
  
-Propiedad config = Propiedad.first
+config = Propiedad.first
  ActionMailer::Base.smtp_settings = {
   :user_name => config.id_correo,
   :password => config.pass_correo,

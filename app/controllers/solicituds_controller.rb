@@ -37,7 +37,7 @@ class SolicitudsController < ApplicationController
     @solicitud.fecha = Date.today
     #@archivo = Attachment.new(attachment_params)
     if solicitud_params[:adjunto]
-      @archivo.save
+      #@archivo.save
       solicitud.archivo_id = @archivo.id
     end
     respond_to do |format|

@@ -14,4 +14,4 @@ Rails.application.initialize!
  # :port => 587,
  # :authentication => :plain,
  # :enable_starttls_auto => true
-}
+#}

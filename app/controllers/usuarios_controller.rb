@@ -1,5 +1,6 @@
 class UsuariosController < ApplicationController
-  before_filter :set_usuario, only: [:show,:update ,:edit, :destroy, :solicitudes_administrador]
+  before_action :set_usuario, only: [:show,:update ,:edit, :destroy]
+  before_action :set_usuario2, only: [:solicitudes_administrador]
   before_filter :authorize
   # GET /usuarios
   # GET /usuarios.json
@@ -41,7 +42,7 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.new(usuario_params)
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
+        format.html { redirect_to @usuario, notice: 'Usuario creado exitosamente' }
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new }
@@ -56,7 +57,7 @@ class UsuariosController < ApplicationController
     @usuario = get_usuario(params[:id])
     respond_to do |format|
       if @usuario.update(usuario_params)
-        format.html { redirect_to @usuario, notice: 'Usuario was successfully updated.' }
+        format.html { redirect_to @usuario, notice: 'Usuario actualizado exitosamente' }
         format.json { render :show, status: :ok, location: @usuario }
       else
         format.html { render :edit }
@@ -70,7 +71,7 @@ class UsuariosController < ApplicationController
   def destroy
     @usuario.destroy
     respond_to do |format|
-      format.html { redirect_to usuarios_url, notice: 'Usuario was successfully destroyed.' }
+      format.html { redirect_to usuarios_url, notice: 'Usuario eliminado exitosamente' }
       format.json { head :no_content }
     end
   end
@@ -80,6 +81,11 @@ class UsuariosController < ApplicationController
     def set_usuario
      @administrador = get_usuario(session[:usuario_id])
      @usuario = Usuario.find(params[:id])
+     #
+    end
+	
+	 def set_usuario2
+     @administrador = get_usuario(session[:usuario_id])
      #
     end
 

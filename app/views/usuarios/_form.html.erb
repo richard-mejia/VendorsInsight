@@ -74,7 +74,9 @@
   </div>
   <div class="field">
     <%= f.label :tipo_usuario %><br>
-    <%= f.text_field :tipo_usuario, class: 'text_field'  %>
+    <%= f.select :tipo_usuario,
+[['Seleccione una Opción',''],
+['Vendedor','Vendedor'],['Administrador','Administrador'],['Diseñador','Diseñador'],['Diseñador Jefe','Diseñador Jefe']] %>
   </div>
   <div class="actions">
     <%= f.submit "Crear Usuario", class: "btn btn-lg btn-primary"  %>

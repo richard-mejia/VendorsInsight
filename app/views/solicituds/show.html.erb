@@ -48,92 +48,95 @@
           
           
 <hr>
-<div class="table-responsive">          
-<table class="table">
-    <tr>
-      <td ><strong><font size="5">Fecha:</font></strong></td>
-      <td><font size="5"><%= @solicitud.fecha %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Cliente:</font></strong></td>
-      <td><font size="5"><%= @solicitud.cliente %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Diseñador:</font></strong></td>
-      <td><font size="5"><%= @solicitud.disenador_id %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Línea:</font></strong></td>
-      <td><font size="5"><%= @solicitud.linea %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Tipo:</font></strong></td>
-      <td><font size="5"><%= @solicitud.tipo %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Set Tallas:</font></strong></td>
-      <td><font size="5"><% if @solicitud.set_tallas %>
-                         <%= "Si" %>
-                         <% else %>
-                         <%= "No" %>
-                         <% end %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Contramuestra:</font></strong></td>
-      <td><font size="5"><% if @solicitud.contramuestra %>
-                         <%= "Si" %>
-                         <% else %>
-                         <%= "No" %>
-                         <% end %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Referencia:</font></strong></td>
-      <td><font size="5"><%= @solicitud.referencia %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Talla:</font></strong></td>
-      <td><font size="5"><%= @solicitud.talla %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Muestra Tela:</font></strong></td>
-      <td><font size="5"><% if @solicitud.muestra_tela %>
-                         <%= "Si" %>
-                         <% else %>
-                         <%= "No" %>
-                         <% end %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Nombre Tela:</font></strong></td>
-      <td><font size="5"><%= @solicitud.nombre_tela %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Adjunto:</font></strong></td>
-      <td><font size="5"><% if @solicitud.adjunto %>
-                         <%= "Si" %>
-                         <% else %>
-                         <%= "No" %>
-                         <% end %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Cantidad:</font></strong></td>
-      <td><font size="5"><%= @solicitud.cantidad %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Especificaciones:</font></strong></td>
-      <td><font size="5"><%= @solicitud.especificacion %></font></td>
-    </tr>
-    <tr>
-      <td ><strong><font size="5">Estado:</font></strong></td>
-      <td><font size="5"><% if @solicitud.estado == 0 %>
-                         <%= "pendiente" %>
-                         <% end %></font></td>
-    </tr>
     
+    <p>
+        <strong><font size="5">Fecha:</font></strong>
+        <font size="5"><%= @solicitud.fecha %></font>
+      </p>
+    
+      <p>
+        <strong><font size="5">Cliente:</font></strong>
+        <font size="5"><%= @solicitud.cliente %></font>
+      </p>
+    
+      <p>
+        <strong><font size="5">Diseñador:</font></strong>
+        <font size="5"><%= @solicitud.disenador_id %></font>
+      </p>
 
-  
-</table>
-</div>          
-          
+      <p>
+        <strong><font size="5">Línea:</font></strong>
+        <font size="5"><%= @solicitud.linea %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Tipo:</font></strong>
+        <font size="5"><%= @solicitud.tipo %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Set Tallas:</font></strong>
+        <font size="5"><% if @solicitud.set_tallas %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Contramuestra:</font></strong>
+        <font size="5"><% if @solicitud.contramuestra %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Referencia:</font></strong>
+        <font size="5"><%= @solicitud.referencia %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Muestra Tela:</font></strong>
+        <font size="5"><% if @solicitud.muestra_tela %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Nombre Tela:</font></strong>
+        <font size="5"><%= @solicitud.nombre_tela %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Adjunto:</font></strong>
+        <font size="5"><% if @solicitud.adjunto %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Cantidad:</font></strong>
+        <font size="5"><%= @solicitud.cantidad %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Especificaciones:</font></strong>
+        <font size="5"><%= @solicitud.especificacion %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Estado:</font></strong>
+        <font size="5"><% if @solicitud.estado == 0 %>
+                         <%= "pendiente" %>
+                         <% end %></font>
+      </p>
+
 
           
           

@@ -1,5 +1,5 @@
 class SolicitudsController < ApplicationController
-  before_action :set_solicitud, only: [:show, :edit, :update, :destroy]
+  before_filter :set_solicitud, only: [:show, :edit, :update, :destroy]
     before_filter :authorize
 
   # GET /solicituds

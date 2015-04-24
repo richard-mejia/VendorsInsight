@@ -1,5 +1,5 @@
 class UsuariosController < ApplicationController
-  before_action :set_usuario, only: [:show, :edit, :update, :destroy, :solicitudes_administrador]
+  before_filter :set_usuario, only: [:show,:update ,:edit, :destroy, :solicitudes_administrador]
   before_filter :authorize
   # GET /usuarios
   # GET /usuarios.json
@@ -8,32 +8,36 @@ class UsuariosController < ApplicationController
     @solicitudes = Solicitud.all
   end
   def index
-       @administrador = get_usuario(session[:usuario_id])  
+    @administrador = get_usuario(session[:usuario_id])  
     @usuarios = Usuario.all
   end
 
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
-       @administrador = get_usuario(session[:usuario_id])  
-    @usuarios = Usuario.all
+   
+    @administrador = get_usuario(session[:usuario_id])  
+    @usuario = Usuario.find(params[:id]) 
   end
 
   # GET /usuarios/new
   def new
-     @administrador = get_usuario(session[:usuario_id])  
+    @administrador = get_usuario(session[:usuario_id])  
     @usuario = Usuario.new
    
   end
 
   # GET /usuarios/1/edit
   def edit
-       @administrador = get_usuario(session[:usuario_id])  
+    # @administrador = get_usuario(session[:usuario_id])
+    @usuario = Usuario.find(params[:id])
+    
   end
 
   # POST /usuarios
   # POST /usuarios.json
   def create
+    @administrador = get_usuario(session[:usuario_id])
     @usuario = Usuario.new(usuario_params)
     respond_to do |format|
       if @usuario.save
@@ -49,6 +53,7 @@ class UsuariosController < ApplicationController
   # PATCH/PUT /usuarios/1
   # PATCH/PUT /usuarios/1.json
   def update
+    @usuario = get_usuario(params[:id])
     respond_to do |format|
       if @usuario.update(usuario_params)
         format.html { redirect_to @usuario, notice: 'Usuario was successfully updated.' }
@@ -73,7 +78,9 @@ class UsuariosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_usuario
-      @usuario = get_usuario(session[:usuario_id])
+     @administrador = get_usuario(session[:usuario_id])
+     @usuario = Usuario.find(params[:id])
+     #
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

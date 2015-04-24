@@ -27,25 +27,25 @@
 }
 
 .form-control{
-  width:370px;
+  width:220px;
   height: 48px;
 }
 
 .btn{
 	background-color: #E62323 !important;
 	color: #FFFFFF !important;
-	width:370px;
+	width:220px;
    height: 48px;
 }
 
 
 .text_field{
-	width:370px;
+	width:220px;
 	height: 38px;
 }
 
 .text_area{
-	width:370px;
+	width:220px;
 	height: 60px;
 }
 

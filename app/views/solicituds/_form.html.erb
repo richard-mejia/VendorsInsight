@@ -58,11 +58,15 @@
   </div>
   <div class="field">
     <%= f.label :Línea %><br>
-    <%= f.text_field :linea, class: 'text_field'%>
+    <%= f.select :linea,
+[['Seleccione una Opción',''],
+['Dama','Dama'],['Niña','Niña'],['Niño','Niño'],['Hombre','Hombre']] %>
   </div>
   <div class="field">
     <%= f.label :Tipo %><br>
-    <%= f.text_field :tipo, class: 'text_field'%>
+    <%= f.select :tipo,
+[['Seleccione tipo de tela',''],
+['Indigo','Indigo'],['Natural','Natural'],['Melinda','Melinda'],['strech','strech']] %>
   </div>
   <div class="field">
     <%= f.label :set_tallas, class: 'check_box' %><br>
@@ -75,7 +79,9 @@
   
   <div class="field">
     <%= f.label :Talla %><br>
-    <%= f.number_field :talla, class: 'text_field'%>
+    <%= f.select :talla,
+[['Seleccione una talla',''],
+['08','08'],['10','10'],['12','12'],['14','14']] %>
   </div>
   <div class="field">
     <%= f.label :muestra_tela, class: 'check_box' %><br>

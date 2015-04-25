@@ -5,21 +5,18 @@ class SolicitudsController < ApplicationController
   # GET /solicituds
   # GET /solicituds.json
   def index
-    @vendedor = get_usuario(session[:usuario_id])
-    @solicituds = Solicitud.where(vendedor_id: @vendedor.id)
+    @solicituds = Solicitud.where(vendedor_id: session[:usuario_id])
   end
 
   # GET /solicituds/1
   # GET /solicituds/1.json
-  def show    
-    @vendedor = get_usuario(session[:usuario_id])   
+  def show       
   end
 
   # GET /solicituds/new
   def new
     @archivo = Attachment.new
     @solicitud = Solicitud.new
-    @vendedor = get_usuario(session[:usuario_id])
   end
 
   # GET /solicituds/1/edit
@@ -29,10 +26,8 @@ class SolicitudsController < ApplicationController
   # POST /solicituds
   # POST /solicituds.json
   def create
-   
     @solicitud = Solicitud.new(solicitud_params)
-    @vendedor = get_usuario(session[:usuario_id])
-    @solicitud.vendedor_id = @vendedor.id
+    @solicitud.vendedor_id = session[:usuario_id]
     @solicitud.estado = 0
     @solicitud.fecha = Date.today
     #@archivo = Attachment.new(attachment_params)
@@ -42,10 +37,9 @@ class SolicitudsController < ApplicationController
     end
     respond_to do |format|
       if @solicitud.save
-        UserMailer.confirmar_solicitud(@vendedor).deliver_now
+        UserMailer.solicitud_creada(session[:correo]).deliver_now
         format.html { redirect_to @solicitud, notice: 'Solicitud realizada exitosamente.' }
-        format.json { render :show, status: :created, location: @solicitud }
-         
+        format.json { render :show, status: :created, location: @solicitud }         
       else
         format.html { render :new }
         format.json { render json: @solicitud.errors, status: :unprocessable_entity }

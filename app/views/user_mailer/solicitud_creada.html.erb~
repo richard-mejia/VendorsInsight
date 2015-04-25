@@ -1,0 +1,7 @@
+<h1>Solictud creada</h1>
+
+<p>
+  <%= @greeting %>, La solicitud se ha creado satisfactoriamente
+    
+    bla bla bla bla
+</p>

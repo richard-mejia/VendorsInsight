@@ -4,12 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
     
     protected
-   # def logued?
-    #  if @sesion == nil
-     #   return false
-     # end
-     # return true
-   # end
+
     def get_usuario(id) 
       @usuario = Usuario.find(id)
       return @usuario
@@ -17,7 +12,7 @@ class ApplicationController < ActionController::Base
 
     def authorize
       unless session[:logueado]
-            flash[:error] = "acceso no autorizado"
+            flash[:error] = "Acceso no autorizado"
             redirect_to login_path
             false
         end

@@ -10,7 +10,7 @@
             <span class="icon-bar"></span>
           </button>
 	  <a class="navbar-brand" href= <% if session[:tipo_usuario].eql? ("Administrador") %> <%= "../solicitudes_administrador" %> <% elsif session[:tipo_usuario].eql? "Vendedor" %> <%= "../solicituds" %> <% end %>><i class="fa fa-reply"></i></a> 
-          <a class="navbar-brand" href="#"><%= @vendedor.nombre %> <%= @vendedor.apellido %></a>
+          <a class="navbar-brand" href="#"><%= session[:nombre] %> <%= session[:apellido] %></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -32,23 +32,10 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
     <div class="container">
-
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-  
-
-          
-          
-          
-          
-          
-          
-          
-          
 <hr>
-    
     <p>
         <strong><font size="5">Fecha:</font></strong>
         <font size="5"><%= @solicitud.fecha %></font>
@@ -136,21 +123,10 @@
                          <%= "pendiente" %>
                          <% end %></font>
       </p>
-
-
-          
-          
-<p id="notice"><%= notice %></p>
-
-
-
-
-                                     
+<p id="notice"><%= notice %></p>           
       </div>
                                      
 </div> <!-- /container -->
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

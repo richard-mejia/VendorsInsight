@@ -3,12 +3,10 @@ class LoginController < ApplicationController
   include LoginHelper
   before_filter :authorize, :except => [:autenticar, :create]
   
-  def index
-    @vendedor = get_usuario(session[:usuario_id])
+  def index    
   end
 
   def index_administrador
-    @administrador = get_usuario(session[:usuario_id])
   end
   
   def autenticar
@@ -20,11 +18,12 @@ class LoginController < ApplicationController
       session[:usuario_id] = sesion.id
       session[:tipo_usuario] = sesion.tipo_usuario
       session[:logueado] = true
+      session[:nombre] = sesion.nombre
+      session[:apellido] = sesion.apellido
+      session[:correo] = sesion.correo
       if sesion.tipo_usuario.eql? "Vendedor"
-        @vendedor = sesion
         render 'index'
       elsif sesion.tipo_usuario.eql? "Administrador"
-        @administrador = sesion
         render 'index_administrador'
       end
     else

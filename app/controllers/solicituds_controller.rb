@@ -66,7 +66,7 @@ class SolicitudsController < ApplicationController
   def destroy
     @solicitud.destroy
     respond_to do |format|
-      format.html { redirect_to solicituds_url, notice: 'Solicitud borrada.' }
+      format.html { redirect_to solicitudes_administrador_url, notice: 'Solicitud borrada.' }
       format.json { head :no_content }
     end
   end

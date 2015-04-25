@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
           </button>
 	  <a class="navbar-brand"href="../inicio_administrador"><i class="fa fa-reply"></i></a>
-          <a class="navbar-brand" href="#"><%= @administrador.nombre %> <%= @administrador.apellido %></a>
+          <a class="navbar-brand" href="#"><%= session[:nombre] %> <%= session[:apellido] %></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -36,77 +36,50 @@
 <hr>
 <h1>Usuarios</h1></center>
     <div class="container">
-
+      
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
   
-  <p id="notice"><%= notice %></p>
-
-
-
-
-
-
-
-<div class="table-responsive">
-<table class="table" WIDTH="100%" >
-  <thead bgcolor = "cccccc">
-    <tr>
-        
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Cedula</th>
-      <th>Correo</th>
-      <th>Tipo Usuario</th>
-      <th colspan="3"></th>
-          
-      </tr>
-  </thead>
-
-  <tbody>
-    <% @usuarios.each do |usuario| %>
-      <tr>
-		  <% if usuario.id != session[:usuario_id] %> 
-        <td HEIGHT="40"><%= usuario.nombre%></td>
-        <td><%= usuario.apellido %></td>
-        <td><%= usuario.cedula %></td>
-        <td><%= usuario.correo %></td>
-        <td><%= usuario.tipo_usuario %></td>
-        <td><%= link_to '', usuario, class: 'fa fa-search' %></td>
-        <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Está seguro que desea eliminar el usuario?' } %></td>
-      </tr>
-	  <% end %>
-    <% end %>
-  </tbody>
-</table>
-          </div>                          
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-                                     
-      </div>
-                                     
-    </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
-
-
-
+	<p id="notice"><%= notice %></p>
+	<div class="table-responsive">
+	  <table class="table" WIDTH="100%" >
+	    <thead bgcolor = "cccccc">
+	      <tr>
+		<th>Nombre</th>
+		<th>Apellido</th>
+		<th>Cedula</th>
+		<th>Correo</th>
+		<th>Tipo Usuario</th>
+		<th colspan="3"></th>
+		
+	      </tr>
+	    </thead>
+	    
+	    <tbody>
+	      <% @usuarios.each do |usuario| %>
+	      <tr>
+		<% if usuario.id != session[:usuario_id] %> 
+		<td HEIGHT="40"><%= usuario.nombre%></td>
+		<td><%= usuario.apellido %></td>
+		<td><%= usuario.cedula %></td>
+		<td><%= usuario.correo %></td>
+		<td><%= usuario.tipo_usuario %></td>
+		<td><%= link_to '', usuario, class: 'fa fa-search' %></td>
+		<td><%= link_to '', edit_usuario_path(usuario), class: 'fa fa-pencil'  %></td>
+		<td><%= link_to '', usuario, method: :delete, data: { confirm: 'Está seguro que desea eliminar el usuario?' }, class: 'fa fa-trash-o' %></td>
+	      </tr>
+	      <% end %>
+	      <% end %>
+	    </tbody>
+	  </table>
+	</div>                          
+      </div>                         
+    </div>       
+</div> <!-- /container -->
+<!-- Bootstrap core JavaScript
+     ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>

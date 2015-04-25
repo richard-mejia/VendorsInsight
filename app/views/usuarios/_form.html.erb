@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
           </button>
 	  <a class="navbar-brand"href="../../usuarios"><i class="fa fa-reply"></i></a>
-          <a class="navbar-brand" href="#"><%= @administrador.nombre %> <%= @administrador.apellido %></a>
+          <a class="navbar-brand" href="#"><%= session[:nombre] %> <%= session[:apellido] %></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -43,7 +43,6 @@
   <% if @usuario.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
-
       <ul>
       <% @usuario.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -51,7 +50,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :nombre %><a>*</a><br>
     <%= f.text_field :nombre, class: 'text_field' %>
@@ -82,16 +80,9 @@
     <%= f.submit "Crear Usuario", class: "btn btn-lg btn-primary"  %>
   </div>
 <% end %>
-
-  <a>* campos obligatorios</a>
-
-
-                                     
-      </div>
-                                     
+  <a>* campos obligatorios</a>                          
+      </div>                            
     </div> <!-- /container -->
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -100,7 +91,3 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 <p id="notice"><%= notice %></p>
-
-
-
-

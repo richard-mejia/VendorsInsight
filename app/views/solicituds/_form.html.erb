@@ -53,17 +53,17 @@
     <%= f.text_field :cliente, class: 'text_field'%>
   </div>
   <div class="field">
-    <%= f.label :Referencia %><br>
+    <%= f.label :Referencia %><a> (opcional)</a><br>
     <%= f.text_field :referencia, class: 'text_field'%>
   </div>
   <div class="field">
-    <%= f.label :Línea %><br>
+    <%= f.label :Línea %><a>*</a><br>
     <%= f.select :linea,
 [['Seleccione una Opción',''],
 ['Dama','Dama'],['Niña','Niña'],['Niño','Niño'],['Hombre','Hombre']] %>
   </div>
   <div class="field">
-    <%= f.label :Tipo %><br>
+    <%= f.label :Tipo %><a>*</a><br>
     <%= f.select :tipo,
 [['Seleccione tipo de tela',''],
 ['Indigo','Indigo'],['Natural','Natural'],['Melinda','Melinda'],['strech','strech']] %>
@@ -92,7 +92,7 @@
     <%= f.text_field :nombre_tela, class: 'text_field'%>
   </div>    
   <div class="field">
-    <%= f.label :Cantidad %><br>
+    <%= f.label :Cantidad %><a>*</a><br>
     <%= f.number_field :cantidad, class: 'text_field'%>
   </div>
   
@@ -111,7 +111,7 @@
 
 <% end %>
                                      
-          
+          <a>* campos obligatorios</a>
         </p>
                                      
       </div>

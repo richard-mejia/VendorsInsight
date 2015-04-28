@@ -1,0 +1,9 @@
+<%= form_for(@attachment) do |f| %>
+  
+  <div class="form-group">
+    <%= f.file_field :archivo %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Subir archivo", class: "btn be-green white" %>
+  </div>
+<% end %>

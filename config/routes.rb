@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
+
+
   resources :solicituds
   resources :usuarios
+  resources :attachments
   get    'login'   => 'login#autenticar'
   get    'inicio_vendedor'   => 'login#index'
   post   'login'   => 'login#create'

@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   post   'login'   => 'login#create'
   get    'logout'  => 'login#destroy'
   get    'inicio_administrador' => 'login#index_administrador'
+  get    'inicio_disenador' => 'login#index_disenador'
   get    'solicitudes_administrador' => 'usuarios#solicitudes_administrador'
+  get    'solicitud_pendiente' => 'solicituds#solicitud_pendiente'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

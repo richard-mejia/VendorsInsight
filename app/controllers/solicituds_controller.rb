@@ -1,5 +1,5 @@
 class SolicitudsController < ApplicationController
-  before_filter :set_solicitud, only: [:show, :edit, :update, :destroy]
+  before_filter :set_solicitud, only: [:show, :edit, :update, :destroy], :except => :solicitud_pendiente
     before_filter :authorize
 
   # GET /solicituds
@@ -12,7 +12,10 @@ class SolicitudsController < ApplicationController
   # GET /solicituds/1.json
   def show       
   end
-
+  
+  def solicitud_pendiente
+    @solicituds = Solicitud.where(estado: 0)    
+  end
   # GET /solicituds/new
   def new
     @archivo = Attachment.new

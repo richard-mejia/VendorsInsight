@@ -8,6 +8,9 @@ class LoginController < ApplicationController
 
   def index_administrador
   end
+    
+  def index_disenador
+  end
   
   def autenticar
   end
@@ -25,6 +28,8 @@ class LoginController < ApplicationController
         render 'index'
       elsif sesion.tipo_usuario.eql? "Administrador"
         render 'index_administrador'
+      elsif sesion.tipo_usuario.eql? "Diseñador Jefe"
+          render 'index_disenador'
       end
     else
       flash[:danger] = 'Clave o cédula no coinciden'

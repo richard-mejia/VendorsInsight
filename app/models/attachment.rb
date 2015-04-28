@@ -5,6 +5,6 @@ class Attachment < ActiveRecord::Base
   :storage => :fog,
   :fog_credentials => {provider: 'AWS', 
     aws_access_key_id: config.id_amazon, 
-    aws__secret_access_key: config.secreto_amazon},
+    aws_secret_access_key: config.secreto_amazon},
   :fog_directory => "Nombre de tu bucket"
 end

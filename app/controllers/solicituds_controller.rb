@@ -1,6 +1,8 @@
 class SolicitudsController < ApplicationController
-  before_filter :set_solicitud, only: [:show, :edit, :update, :destroy], :except => :solicitud_pendiente
+ 
+    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy] 
     before_filter :authorize
+    skip_before_filter :set_solicitud, only: :solicitud_pendiente
 
   # GET /solicituds
   # GET /solicituds.json
@@ -14,7 +16,8 @@ class SolicitudsController < ApplicationController
   end
   
   def solicitud_pendiente
-    @solicituds = Solicitud.where(estado: 0)    
+    @solicituds = Solicitud.where(estado: 0)  
+    
   end
   # GET /solicituds/new
   def new
@@ -79,6 +82,7 @@ class SolicitudsController < ApplicationController
     def set_solicitud
       @solicitud = Solicitud.find(params[:id])
     end
+    
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def solicitud_params

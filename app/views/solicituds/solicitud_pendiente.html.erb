@@ -57,12 +57,13 @@
   <tbody>
     <% @solicituds.each do |solicitud| %>
       <tr>
-        <td HEIGHT="40"><%= solicitud.id%></td>
+          <% if solicitud.estado != 0 %>
+        <td HEIGHT="40"><%= @solicitud.id%></td>
         <td><%= solicitud.cliente %></td>
         <td><% if solicitud.estado == 0 %>
 		<%=	 "pendiente"%>
 		<% end %></td>
-        <td><%= solicitud.fecha %></td>
+        <td><%= @solicitud.fecha %></td>
         <td><%= link_to '', solicitud, class: 'fa fa-search' %></td>
       </tr>
     <% end %>

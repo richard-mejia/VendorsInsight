@@ -1,8 +1,8 @@
 class SolicitudsController < ApplicationController
  
-    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy] 
+    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy]
     before_filter :authorize
-    skip_before_filter :set_solicitud, only: :solicitud_pendiente
+    
 
   # GET /solicituds
   # GET /solicituds.json
@@ -15,9 +15,8 @@ class SolicitudsController < ApplicationController
   def show       
   end
   
-  def solicitud_pendiente
+  def solicitudes_pendientes_jefe_disenador
     @solicituds = Solicitud.where(estado: 0)  
-    
   end
   # GET /solicituds/new
   def new
@@ -79,7 +78,7 @@ class SolicitudsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_solicitud
+    def set_solicitud      
       @solicitud = Solicitud.find(params[:id])
     end
     
@@ -88,4 +87,4 @@ class SolicitudsController < ApplicationController
     def solicitud_params
       params.require(:solicitud).permit(:fecha,:vendedor_id, :cliente, :disenador_id, :linea, :tipo, :set_tallas, :contramuestra, :referencia, :talla, :muestra_tela, :nombre_tela, :adjunto, :cantidad, :especificacion, :estado)
     end
-end
+  end

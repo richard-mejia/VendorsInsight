@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :solicituds
   resources :usuarios
   resources :attachments
+  get    'solicitudes_pendientes_jefe_disenador' => 'solicituds#solicitudes_pendientes_jefe_disenador'
   get    'login'   => 'login#autenticar'
   get    'inicio_vendedor'   => 'login#index'
   post   'login'   => 'login#create'
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   get    'inicio_administrador' => 'login#index_administrador'
   get    'inicio_disenador' => 'login#index_disenador'
   get    'solicitudes_administrador' => 'usuarios#solicitudes_administrador'
-  get    'solicitud_pendiente' => 'solicituds#solicitud_pendiente'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

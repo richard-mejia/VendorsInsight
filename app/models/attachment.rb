@@ -4,7 +4,7 @@ class Attachment < ActiveRecord::Base
  has_attached_file :archivo,
   :storage => :fog,
     :fog_credentials => {provider: 'Google', 
-      google_access_key_id: 'GOOGJ2O7NUPJWG5OZ42Y', 
-      google_secret_access_key: 'zy0mT/ju28VbZJycgfLs9toP6L95/zl0lqiuer7o'},
+        google_storage_access_key_id: config.id_amazon, 
+        google_storage_secret_access_key: config.secreto_amazon},
     :fog_directory => "imagenessolicitudes"
 end

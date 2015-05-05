@@ -5,7 +5,7 @@ class AttachmentsController < ApplicationController
 
   def create
     @attachment = Attachment.new(attachment_params)
-    if @attachment.save
+      if @attachment.save
       redirect_to @attachment, alert: "Se guardo tu archivo"
     else
       redirect_to @attachment, notice: "No pudimos agregar tu archivo"

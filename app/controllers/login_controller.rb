@@ -3,13 +3,31 @@ class LoginController < ApplicationController
   include LoginHelper
   before_filter :authorize, :except => [:autenticar, :create]
   
-  def index    
+  def index
+    unless authorize_page(session[:tipo_usuario],"Vendedor")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
   end
 
   def index_administrador
+    unless authorize_page(session[:tipo_usuario],"Administrador")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
   end
     
   def index_disenador
+    if authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+    elsif
+       authorize_page(session[:tipo_usuario],"Diseñador")
+    else
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
   end
   
   def autenticar
@@ -41,5 +59,4 @@ class LoginController < ApplicationController
     session[:logueado] = false
     render 'autenticar'
   end
-
 end

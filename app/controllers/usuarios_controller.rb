@@ -5,20 +5,41 @@ class UsuariosController < ApplicationController
   # GET /usuarios.json
   
   def solicitudes_administrador
+    unless authorize_page(session[:tipo_usuario],"Administrador")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
     @solicitudes = Solicitud.all
   end
-  def index  
+  def index
+    unless authorize_page(session[:tipo_usuario],"Administrador")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
+
     @usuarios = Usuario.all
   end
 
   # GET /usuarios/1
   # GET /usuarios/1.json
-  def show  
+  def show
+    unless authorize_page(session[:tipo_usuario],"Administrador")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end  
     @usuario = Usuario.find(params[:id]) 
   end
 
   # GET /usuarios/new
-  def new  
+  def new
+    unless authorize_page(session[:tipo_usuario],"Administrador")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end    
     @usuario = Usuario.new
   end
 
@@ -30,6 +51,11 @@ class UsuariosController < ApplicationController
   # POST /usuarios
   # POST /usuarios.json
   def create
+    unless authorize_page(session[:tipo_usuario],"Administrador")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end  
     @usuario = Usuario.new(usuario_params)
     respond_to do |format|
       if @usuario.save
@@ -45,6 +71,11 @@ class UsuariosController < ApplicationController
   # PATCH/PUT /usuarios/1
   # PATCH/PUT /usuarios/1.json
   def update
+    unless authorize_page(session[:tipo_usuario],"Administrador")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end  
     @usuario = get_usuario(params[:id])
     respond_to do |format|
       if @usuario.update(usuario_params)
@@ -60,6 +91,11 @@ class UsuariosController < ApplicationController
   # DELETE /usuarios/1
   # DELETE /usuarios/1.json
   def destroy
+    unless authorize_page(session[:tipo_usuario],"Administrador")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end  
     @usuario.destroy
     respond_to do |format|
       format.html { redirect_to usuarios_url, notice: 'Usuario eliminado exitosamente' }

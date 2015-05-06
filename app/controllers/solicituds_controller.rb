@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class SolicitudsController < ApplicationController
  
     before_filter :set_solicitud, only: [:show, :edit, :update, :destroy]
@@ -7,6 +8,11 @@ class SolicitudsController < ApplicationController
   # GET /solicituds
   # GET /solicituds.json
   def index
+    unless authorize_page(session[:tipo_usuario],"Vendedor")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
     @solicituds = Solicitud.where(vendedor_id: session[:usuario_id])
   end
 
@@ -16,6 +22,11 @@ class SolicitudsController < ApplicationController
   end
   
   def solicitudes_pendientes_jefe_disenador
+    unless authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
     @solicituds = Solicitud.where(estado: 0)  
   end
   # GET /solicituds/new
@@ -31,6 +42,11 @@ class SolicitudsController < ApplicationController
   # POST /solicituds
   # POST /solicituds.json
   def create
+    unless authorize_page(session[:tipo_usuario],"Vendedor")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
     @solicitud = Solicitud.new(solicitud_params)
     @solicitud.vendedor_id = session[:usuario_id]
     @solicitud.estado = 0
@@ -69,6 +85,11 @@ class SolicitudsController < ApplicationController
   # DELETE /solicituds/1
   # DELETE /solicituds/1.json
   def destroy
+     unless authorize_page(session[:tipo_usuario],"Administrador")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
     @solicitud.destroy
     respond_to do |format|
       format.html { redirect_to solicitudes_administrador_url, notice: 'Solicitud borrada.' }

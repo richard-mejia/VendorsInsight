@@ -16,5 +16,12 @@ class ApplicationController < ActionController::Base
             redirect_to login_path
             false
         end
-    end    
+    end
+
+    def authorize_page(sesion,sesion_autorizada)
+      if sesion.eql? sesion_autorizada
+        return true
+      end
+      return false
+    end
 end

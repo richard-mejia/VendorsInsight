@@ -8,6 +8,6 @@ class UserMailer < ApplicationMailer
   def solicitud_creada(usuario_correo)
     @greeting = "Hola!"
     mail(to: usuario_correo, subject: 'solicitud creada')
-      mail(to: 'sebaslv12@hotmail.com', subject: 'peticion de solicitud')
+     # mail(to: 'sebaslv12@hotmail.com', subject: 'peticion de solicitud')
   end
 end

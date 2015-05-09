@@ -64,7 +64,13 @@
 		<%=	 "pendiente"%>
 		<% end %></td>
         <td><%= solicitud.fecha %></td>
-        <td><%= link_to '', solicitud, class: 'fa fa-search' %></td>
+        <td><button class="nada" type="button">
+           Aceptar
+            </button></td>
+        <td><button class="nada" type="button">
+           Rechazar
+            </button></td>
+          <td><a href="/ver_solicitud_disenador/"+<%= solicitud.id %>ver</a>/td>
       </tr>
       <% end %>
       <% end %>

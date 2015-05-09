@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 class SolicitudsController < ApplicationController
  
-    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy]
+    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy, :ver_solicitud_disenador]
     before_filter :authorize
     
 
@@ -19,6 +19,9 @@ class SolicitudsController < ApplicationController
   # GET /solicituds/1
   # GET /solicituds/1.json
   def show       
+  end
+    
+  def ver_solicitud_disenador
   end
   
   def solicitudes_pendientes_jefe_disenador

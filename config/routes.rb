@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
   resources :solicituds
+  get    '/ver_solicitud_disenador/:id', to:  'solicituds#ver_solicitud_disenador'
   resources :usuarios
   resources :attachments
   get    'solicitudes_pendientes_jefe_disenador' => 'solicituds#solicitudes_pendientes_jefe_disenador'

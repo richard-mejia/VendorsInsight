@@ -1,0 +1,136 @@
+
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+	  <a class="navbar-brand" href= <% if session[:tipo_usuario].eql? ("Administrador") %> <%= "../solicitudes_administrador" %> <% elsif session[:tipo_usuario].eql? "Vendedor" %> <%= "../solicituds" %> <% end %>><i class="fa fa-reply"></i></a> 
+          <a class="navbar-brand" href="#"><%= session[:nombre] %> <%= session[:apellido] %></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+           
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a <%= link_to "salir", :controller => "login", :action => "destroy"%></a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+<hr>
+    <p>
+        <strong><font size="5">Fecha:</font></strong>
+        <font size="5"><%= @solicitud.fecha %></font>
+      </p>
+    
+      <p>
+        <strong><font size="5">Cliente:</font></strong>
+        <font size="5"><%= @solicitud.cliente %></font>
+      </p>
+    
+      <p>
+        <strong><font size="5">Diseñador:</font></strong>
+        <font size="5"><%= @solicitud.disenador_id %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Línea:</font></strong>
+        <font size="5"><%= @solicitud.linea %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Tipo:</font></strong>
+        <font size="5"><%= @solicitud.tipo %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Set Tallas:</font></strong>
+        <font size="5"><% if @solicitud.set_tallas %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Contramuestra:</font></strong>
+        <font size="5"><% if @solicitud.contramuestra %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Referencia:</font></strong>
+        <font size="5"><%= @solicitud.referencia %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Muestra Tela:</font></strong>
+        <font size="5"><% if @solicitud.muestra_tela %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Nombre Tela:</font></strong>
+        <font size="5"><%= @solicitud.nombre_tela %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Adjunto:</font></strong>
+        <font size="5"><% if @solicitud.adjunto %>
+                         <%= "Si" %>
+                         <% else %>
+                         <%= "No" %>
+                         <% end %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Cantidad:</font></strong>
+        <font size="5"><%= @solicitud.cantidad %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Especificaciones:</font></strong>
+        <font size="5"><%= @solicitud.especificacion %></font>
+      </p>
+
+      <p>
+        <strong><font size="5">Estado:</font></strong>
+        <font size="5"><% if @solicitud.estado == 0 %>
+                         <%= "pendiente" %>
+                         <% end %></font>
+      </p>
+<p id="notice"><%= notice %></p>           
+      </div>
+                                     
+</div> <!-- /container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>

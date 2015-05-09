@@ -70,12 +70,12 @@
     <%= f.label :correo %><a>*</a><br>
     <%= f.text_field :correo, class: 'text_field'  %>
   </div>
-  <div class="field">
+  <div class="select">
     <%= f.label :tipo_usuario %><a>*</a><br>
     <%= f.select :tipo_usuario,
 [['Seleccione una Opción',''],
 ['Vendedor','Vendedor'],['Administrador','Administrador'],['Diseñador','Diseñador'],['Diseñador Jefe','Diseñador Jefe']] %>
-  </div>
+  </div><br>
   <div class="actions">
     <%= f.submit "Crear Usuario", class: "btn btn-lg btn-primary"  %>
   </div>

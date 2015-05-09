@@ -56,18 +56,18 @@
     <%= f.label :Referencia %><a> (opcional)</a><br>
     <%= f.text_field :referencia, class: 'text_field'%>
   </div>
-  <div class="field">
+  <div class="select">
     <%= f.label :Línea %><a>*</a><br>
     <%= f.select :linea,
 [['Seleccione una Opción',''],
 ['Dama','Dama'],['Niña','Niña'],['Niño','Niño'],['Hombre','Hombre']] %>
-  </div>
-  <div class="field">
+  </div><br>
+  <div class="select">
     <%= f.label :Tipo %><a>*</a><br>
     <%= f.select :tipo,
 [['Seleccione tipo de tela',''],
 ['Indigo','Indigo'],['Natural','Natural'],['Melinda','Melinda'],['strech','strech']] %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :set_tallas, class: 'check_box' %><br>
     <%= f.check_box :set_tallas%>
@@ -77,12 +77,12 @@
     <%= f.check_box :contramuestra %>
   </div>
   
-  <div class="field">
+  <div class="select">
     <%= f.label :Talla %><br>
     <%= f.select :talla,
 [['Seleccione una talla',''],
 ['08','08'],['10','10'],['12','12'],['14','14']] %>
-  </div>
+  </div><br>
   <div class="field">
     <%= f.label :muestra_tela, class: 'check_box' %><br>
     <%= f.check_box :muestra_tela %>

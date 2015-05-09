@@ -27,7 +27,7 @@
 }
 
 .form-control{
-  width:220px;
+  width:255px;
   height: 48px;
 }
 
@@ -35,10 +35,10 @@
 	background-color: #E62323 !important;
 	color: #FFFFFF !important;
 	width:255px;
-   height: 48px;
+    height: 48px;
+    outline:0 !important;
+
 }
-
-
 .text_field{
 	width:220px;
 	height: 38px;
@@ -49,3 +49,35 @@
 	height: 60px;
 }
 
+.aceptar{
+	background-color: #99ff99 !important;
+	color: #000000 !important;
+	outline:0 !important;
+}
+
+.rechazar{
+	background-color: #ff6666 !important;
+	color: #000000 !important;
+	outline:0 !important;
+}
+ 
+.btn:active{ 
+outline: 0; 
+background: #A61C1C; 
+background: -moz-linear-gradient(top, #A61C1C 1%, #A61C1C 100%); 
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#A61C1C), color-stop(100%,#A61C1C )); 
+text-shadow: 0 1px 0 rgba(0,0,0,0.4); 
+text-decoration: none; 
+border: 3px solid #ffffff !IMPORTANT; 
+} 
+
+.select select {
+  width: 168px;
+  padding: 5px;
+  font-size: 12px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  border: 1px solid #A7ABA8!IMPORTANT; 
+}

@@ -42,6 +42,15 @@ class SolicitudsController < ApplicationController
   def edit
   end
 
+    def solicitudes_disenador
+        unless authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
+    @solicitudes = Solicitud.all
+    end
+
   # POST /solicituds
   # POST /solicituds.json
   def create

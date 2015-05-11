@@ -60,6 +60,8 @@ class SolicitudsController < ApplicationController
       false
     end
     @solicitud = Solicitud.new(solicitud_params)
+    @disenador = Usuario.where(tipo_usuario: "Diseñador Jefe").first
+    @solicitud.disenador_id = @disenador.id;
     @solicitud.vendedor_id = session[:usuario_id]
     @solicitud.estado = 0
     @solicitud.fecha = Date.today
@@ -72,6 +74,7 @@ class SolicitudsController < ApplicationController
       if @solicitud.save
           puts session[:correo]
           UserMailer.solicitud_creada(session[:correo], @solicitud).deliver_now
+          UserMailer.solicitud_creada_disenador(@disenador.correo,@solicitud).deliver_now
         format.html { redirect_to @solicitud, notice: 'Solicitud realizada exitosamente.' }
         format.json { render :show, status: :created, location: @solicitud }         
       else

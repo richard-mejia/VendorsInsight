@@ -10,4 +10,9 @@ class UserMailer < ApplicationMailer
     @greeting = "Hola"
     mail(to: usuario_correo, subject: 'solicitud creada')
   end
+    def solicitud_creada_disenador(correo_disenador, solicitud)
+    @solicitud = solicitud
+    @greeting = "Hola"
+        mail(to: correo_disenador, subject: 'Petición de solicitud')
+    end
 end

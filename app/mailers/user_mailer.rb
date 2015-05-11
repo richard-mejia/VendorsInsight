@@ -5,7 +5,8 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.confirmar_solicitud.subject
   #
-  def solicitud_creada(usuario_correo)
+    def solicitud_creada(usuario_correo, solicitud)
+    @solicitud = solicitud
     @greeting = "Hola"
     mail(to: usuario_correo, subject: 'solicitud creada')
   end

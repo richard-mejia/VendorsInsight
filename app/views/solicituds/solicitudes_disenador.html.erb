@@ -87,7 +87,7 @@
     <script>
         $(document).on("ready", function(){
           $("#select2").change(function(){
-              var seleccion =  $("#select2").val();
+              var seleccion =  $("#select2 option:selected").val();
               alert("Usted ha realizado un cambio. Ha escogido ");
           });
         })

@@ -36,6 +36,7 @@
 <h1>Lista solicitudes</h1></center>
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
+          
 <div class="table-responsive">
 <table class="table" WIDTH="100%" >
   <thead bgcolor = "cccccc">
@@ -57,14 +58,16 @@
         <td><%= solicitud.cliente %></td>
         <td><% if solicitud.estado == 0 %>
 	  <%=	 "Pendiente"%>
-	  <% end %></td>
-        <td><% if solicitud.estado == 0 %>
-            <div class="select">
-                <%= solicitud.select :estado,
-    [['cambiar estado',''],
-    ['Terminado', 3],['Entregado', 4]] %>
-                <% end %>
-  </div>
+	  <% end %>
+        <% if solicitud.estado == 0 %>
+       <div id="select2">
+       <select >
+          <option value=''>Cambiar estado</option>
+          <option value="3">Terminado</option>
+          <option value="4">Entregado</option>   
+       </select>
+           </div>
+            <% end %>
           </td>
         <td><%= solicitud.fecha %></td>
         <td><%= link_to '', solicitud, class: 'fa fa-search' %></td>	
@@ -81,4 +84,13 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+        $(document).on("ready", function(){
+          $("#select2").change(function(){
+              var seleccion =  $("#select2").val();
+              alert("Usted ha realizado un cambio. Ha escogido ");
+          });
+        })
+    </script>
 <p id="notice"><%= notice %></p>
+

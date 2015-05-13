@@ -119,7 +119,7 @@
           <% if @attachment != nil %>
       <p>
         <strong><font size="5">imagen:</font></strong>
-          <IMG SRC= <%= @attachment.url %>>
+           <a href=<%= @attachment.url %>>click ver imagen</a>
       </p>
           <% end %>
 
@@ -137,8 +137,6 @@
           <%=	 "entregado"%>
                          <% end %></font>
       </p>
-<p id="notice"><%= notice %></p>           
-      </div>
                                      
 </div> <!-- /container -->
     <!-- Bootstrap core JavaScript

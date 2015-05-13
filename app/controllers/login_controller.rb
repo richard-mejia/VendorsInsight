@@ -57,6 +57,7 @@ class LoginController < ApplicationController
 
   def destroy
     session[:logueado] = false
+      session[:archivo_id] = nil
     render 'autenticar'
   end
 end

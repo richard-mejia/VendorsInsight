@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-	  <a class="navbar-brand"href="../inicio_administrador"><i class="fa fa-reply"></i></a>
+	  <a class="navbar-brand"href="../inicio_disenador"><i class="fa fa-reply"></i></a>
           <a class="navbar-brand" href="#"><%= session[:nombre] %> <%= session[:apellido] %></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -57,10 +57,18 @@
       <td HEIGHT="40"><%= solicitud.id%></td>
       <td><%= solicitud.cliente %></td>
       <td><% if solicitud.estado == 0 %>
-	<%=	 "pendiente"%>
+	      <%=	 "pendiente"%>
+          <% elsif solicitud.estado == 1 %>
+          <%=	 "aceptado"%>
+          <% elsif solicitud.estado == 2 %>
+          <%=	 "rechazado"%>
+          <% elsif solicitud.estado == 3 %>
+          <%=	 "terminado"%>
+          <% elsif solicitud.estado == 4 %>
+          <%=	 "entregado"%>
 	<% end %>
         <% if solicitud.estado > 0 %>
-      <td><%= link_to 'cambiar estado', solicitud %></td>
+      <%= link_to 'cambiar estado', solicitud %>
       
       <% end %>
       </td>

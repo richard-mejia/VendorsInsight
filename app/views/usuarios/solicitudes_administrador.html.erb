@@ -56,7 +56,15 @@
         <td HEIGHT="40"><%= solicitud.id%></td>
         <td><%= solicitud.cliente %></td>
         <td><% if solicitud.estado == 0 %>
-	  <%=	 "Pendiente"%>
+	      <%=	 "pendiente"%>
+          <% elsif solicitud.estado == 1 %>
+          <%=	 "aceptado"%>
+          <% elsif solicitud.estado == 2 %>
+          <%=	 "rechazado"%>
+          <% elsif solicitud.estado == 3 %>
+          <%=	 "terminado"%>
+          <% elsif solicitud.estado == 4 %>
+          <%=	 "entregado"%>
 	  <% end %></td>
         <td><%= solicitud.fecha %></td>
         <td><%= link_to '', solicitud, class: 'fa fa-search' %></td>	

@@ -7,7 +7,8 @@ class AttachmentsController < ApplicationController
     @attachment = Attachment.new(attachment_params)
       
       if @attachment.save
-          direccion = "http://storage.googleapis.com/imagenessolicitudes/attachments/archivos/000/000/00"+ @attachment.id.to_s + "/original/" + @attachment.archivo_file_name
+          number = @attachment.id
+          direccion = "http://storage.googleapis.com/imagenessolicitudes/attachments/archivos/000/000/"+ nro_ceros(number) + "/original/" + @attachment.archivo_file_name
           @attachment.url = direccion
           @attachment.save
           session[:archivo_id] = @attachment.id
@@ -19,5 +20,16 @@ class AttachmentsController < ApplicationController
   private
    def attachment_params
       params.require(:attachment).permit(:archivo)
+    end
+    
+    def nro_ceros(number)
+        if number < 10
+            return "00" + number.to_s
+        
+        elsif number < 100
+            return "0" + number.to_s
+        else
+            return number.to_s
+        end 
     end
 end

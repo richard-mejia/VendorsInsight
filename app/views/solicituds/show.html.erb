@@ -116,6 +116,12 @@
         <strong><font size="5">Especificaciones:</font></strong>
         <font size="5"><%= @solicitud.especificacion %></font>
       </p>
+          <% if @attachment != nil %>
+      <p>
+        <strong><font size="5">imagen:</font></strong>
+          <IMG SRC= <%= @attachment.url %>>
+      </p>
+          <% end %>
 
       <p>
         <strong><font size="5">Estado:</font></strong>

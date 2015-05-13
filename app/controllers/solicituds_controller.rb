@@ -19,7 +19,8 @@ class SolicitudsController < ApplicationController
 
   # GET /solicituds/1
   # GET /solicituds/1.json
-  def show       
+  def show 
+      @attachment = get_attachment(@solicitud.archivo_id)
   end
     
   def ver_solicitud_disenador

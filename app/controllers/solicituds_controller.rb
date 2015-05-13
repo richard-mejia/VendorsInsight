@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 class SolicitudsController < ApplicationController
  
-    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy, :ver_solicitud_disenador, :aceptar, :rechazar]
+    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy, :ver_solicitud_disenador, :aceptar, :rechazar, :terminar, :entregar]
     before_filter :authorize
     
 
@@ -14,6 +14,7 @@ class SolicitudsController < ApplicationController
       false
     end
     @solicituds = Solicitud.where(vendedor_id: session[:usuario_id])
+    
   end
 
   # GET /solicituds/1
@@ -103,6 +104,7 @@ class SolicitudsController < ApplicationController
       flash[:error] = "No se pudo actualizar el estado"
     else
       flash[:success] = "Solicitud aceptada"
+      
     end
     redirect_to solicitudes_pendientes_jefe_disenador_url
     
@@ -117,6 +119,25 @@ class SolicitudsController < ApplicationController
     redirect_to solicitudes_pendientes_jefe_disenador_url
 
   end
+    
+    def terminar
+        unless  @solicitud.update(estado: 3)
+      flash[:error] = "No se pudo actualizar el estado"
+    else
+            flash[:success] = "Solicitud actualizada a estado terminado"
+    end
+        
+    redirect_to solicitudes_disenador_url
+    end
+    
+    def entregar
+        unless  @solicitud.update(estado: 4)
+      flash[:error] = "No se pudo actualizar el estado"
+    else
+            flash[:success] = "Solicitud actualizada a estado entregado"
+    end
+    redirect_to solicitudes_disenador_url
+    end
 
 
   # DELETE /solicituds/1

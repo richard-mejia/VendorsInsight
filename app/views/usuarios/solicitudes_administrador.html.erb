@@ -42,7 +42,9 @@
     <tr>
         
       <th>Nro</th>
+      <th>Vendedor</th>
       <th>Cliente</th>
+      <th>Cantidad</th>
       <th>Estado</th>
       <th>Fecha</th>
       <th colspan="3"></th>
@@ -54,7 +56,9 @@
     <% @solicitudes.each do |solicitud| %>
       <tr>
         <td HEIGHT="40"><%= solicitud.id%></td>
+        <td><%= solicitud.vendedor_id %></td>
         <td><%= solicitud.cliente %></td>
+        <td><%= solicitud.cantidad %></td>
         <td><% if solicitud.estado == 0 %>
 	      <%=	 "pendiente"%>
           <% elsif solicitud.estado == 1 %>

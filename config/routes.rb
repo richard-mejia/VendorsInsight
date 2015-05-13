@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :attachments
   post 'aceptar_solicitud/:id' => 'solicituds#aceptar', as: 'aceptar_solicitud'
   post 'rechazar_solicitud/:id' => 'solicituds#rechazar', as: 'rechazar_solicitud'
+  post 'terminar_solicitud/:id' => 'solicituds#terminar', as: 'terminar_solicitud'             
+  post 'entregar_solicitud/:id' => 'solicituds#entregar', as: 'entregar_solicitud'
   get    'solicitudes_pendientes_jefe_disenador' => 'solicituds#solicitudes_pendientes_jefe_disenador'
   get    'login'   => 'login#autenticar'
   get    'inicio_vendedor'   => 'login#index'

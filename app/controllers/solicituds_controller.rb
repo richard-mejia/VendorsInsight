@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 class SolicitudsController < ApplicationController
  
-    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy, :ver_solicitud_disenador]
+    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy, :ver_solicitud_disenador, :aceptar, :rechazar]
     before_filter :authorize
     
 
@@ -97,6 +97,27 @@ class SolicitudsController < ApplicationController
       end
     end
   end
+  
+  def aceptar
+    unless  @solicitud.update(estado: 1)
+      flash[:error] = "No se pudo actualizar el estado"
+    else
+      flash[:success] = "Solicitud aceptada"
+    end
+    redirect_to solicitudes_pendientes_jefe_disenador_url
+    
+  end
+
+  def rechazar
+    unless  @solicitud.update(estado: 2)
+      flash[:error] = "No se pudo actualizar el estado"
+    else
+      flash[:success] = "Solicitud aceptada"
+    end
+    redirect_to solicitudes_pendientes_jefe_disenador_url
+
+  end
+
 
   # DELETE /solicituds/1
   # DELETE /solicituds/1.json

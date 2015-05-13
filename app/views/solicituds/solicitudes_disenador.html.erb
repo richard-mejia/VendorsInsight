@@ -53,26 +53,21 @@
 
   <tbody>
     <% @solicitudes.each do |solicitud| %>
-      <tr>
-        <td HEIGHT="40"><%= solicitud.id%></td>
-        <td><%= solicitud.cliente %></td>
-        <td><% if solicitud.estado == 0 %>
-	  <%=	 "Pendiente"%>
-	  <% end %>
-        <% if solicitud.estado == 0 %>
-       <div id="select2">
-       <select >
-          <option value=''>Cambiar estado</option>
-          <option value="3">Terminado</option>
-          <option value="4">Entregado</option>   
-       </select>
-           </div>
-            <% end %>
-          </td>
-        <td><%= solicitud.fecha %></td>
-        <td><%= link_to '', solicitud, class: 'fa fa-search' %></td>	
-	
-      </tr>
+    <tr>
+      <td HEIGHT="40"><%= solicitud.id%></td>
+      <td><%= solicitud.cliente %></td>
+      <td><% if solicitud.estado == 0 %>
+	<%=	 "pendiente"%>
+	<% end %>
+        <% if solicitud.estado > 0 %>
+      <td><%= link_to 'cambiar estado', solicitud %></td>
+      
+      <% end %>
+      </td>
+      <td><%= solicitud.fecha %></td>
+      <td><%= link_to '', solicitud, class: 'fa fa-search' %></td>	
+      
+    </tr>
     <% end %>
   </tbody>
 </table>                               
@@ -84,13 +79,4 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script>
-        $(document).on("ready", function(){
-          $("#select2").change(function(){
-              var seleccion =  $("#select2 option:selected").val();
-              alert("Usted ha realizado un cambio. Ha escogido ");
-          });
-        })
-    </script>
 <p id="notice"><%= notice %></p>
-

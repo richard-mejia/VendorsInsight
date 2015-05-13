@@ -37,13 +37,12 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron" >
- <% flash.each do |type, message| %>
-  <div class="alert <%= bootstrap_class_for(:error) %> fade in">
-    <button class="close" data-dismiss="alert">×</button>
-    <%= message %>
-  </div>
- <% end %>
-  
+   unless  @solicitud.update(estado: 1)
+      flash[:error] = "No se pudo actualizar el estado"
+    else
+      flash[:notice] = "Solicitud aceptada"
+    end
+
   
 <div class="table-responsive">
 <table class="table" WIDTH="100%" >
@@ -69,8 +68,8 @@
 	<%=	 "pendiente"%>
 	<% end %></td>
       <td><%= solicitud.fecha %></td>
-      <td><%= link_to 'aceptar', aceptar_solicitud_path(solicitud), method: :aceptar, data: { confirm: 'Está seguro que desea aceptar la solicitud?' } ,class: 'btn aceptar' %></td> &nbsp;&nbsp;
-      <td><%= link_to 'rechazar', rechazar_solicitud_path(solicitud), method: :rechazar, data: { confirm: 'Está seguro que desea rechazar la solicitud?' }, class: 'btn rechazar' %></td>  
+      <td><%= link_to '', aceptar_solicitud_path(solicitud), method: :aceptar, data: { confirm: 'Está seguro que desea aceptar la solicitud?' } ,class: 'btn aceptar' %></td> &nbsp;&nbsp;
+      <td><%= link_to '', rechazar_solicitud_path(solicitud), method: :rechazar, data: { confirm: 'Está seguro que desea rechazar la solicitud?' }, class: 'btn rechazar' %></td>  
       <td><%= link_to '', solicitud_disenador_path(solicitud), class: 'fa fa-search' %></td>
     </tr>
     <% end %>

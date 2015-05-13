@@ -66,14 +66,15 @@ class SolicitudsController < ApplicationController
     @solicitud.vendedor_id = session[:usuario_id]
     @solicitud.estado = 0
     @solicitud.fecha = Date.today
+      if session[:archivo_id] != nil
+          @solicitud.adjunto = true
+          @solicitud.archivo_id = session[:archivo_id]
+          session[:archivo_id] = nil
+      end   
     #@archivo = Attachment.new(attachment_params)
-    unless solicitud_params[:adjunto]
-      #@archivo.save
-      @solicitud.archivo_id = @archivo.id
-    end
+
     respond_to do |format|
       if @solicitud.save
-          puts session[:correo]
           UserMailer.solicitud_creada(session[:correo], @solicitud).deliver_now
           UserMailer.solicitud_creada_disenador(@disenador.correo,@solicitud).deliver_now
         format.html { redirect_to @solicitud, notice: 'Solicitud realizada exitosamente.' }
@@ -104,7 +105,7 @@ class SolicitudsController < ApplicationController
       flash[:error] = "No se pudo actualizar el estado"
     else
       flash[:success] = "Solicitud aceptada"
-      
+        UserMailer.solicitud_aceptar(@solicitud).deliver_now
     end
     redirect_to solicitudes_pendientes_jefe_disenador_url
     
@@ -115,6 +116,7 @@ class SolicitudsController < ApplicationController
       flash[:error] = "No se pudo actualizar el estado"
     else
       flash[:success] = "Solicitud rechazada"
+        UserMailer.solicitud_rechazar(@solicitud).deliver_now
     end
     redirect_to solicitudes_pendientes_jefe_disenador_url
 
@@ -125,6 +127,7 @@ class SolicitudsController < ApplicationController
       flash[:error] = "No se pudo actualizar el estado"
     else
             flash[:success] = "Solicitud actualizada a estado terminado"
+            UserMailer.solicitud_terminar(@solicitud).deliver_now
     end
         
     redirect_to solicitudes_disenador_url
@@ -135,6 +138,7 @@ class SolicitudsController < ApplicationController
       flash[:error] = "No se pudo actualizar el estado"
     else
             flash[:success] = "Solicitud actualizada a estado entregado"
+            UserMailer.solicitud_entregar(@solicitud).deliver_now
     end
     redirect_to solicitudes_disenador_url
     end

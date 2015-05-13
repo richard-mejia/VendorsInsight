@@ -15,4 +15,24 @@ class UserMailer < ApplicationMailer
     @greeting = "Hola"
         mail(to: correo_disenador, subject: 'Petición de solicitud')
     end
+    def solicitud_aceptar(solicitud)
+    @solicitud = solicitud
+    @greeting = "Hola"
+        mail(to: get_usuario(solicitud.vendedor_id).correo, subject: 'solicitud aceptada')
+    end
+    def solicitud_rechazar(solicitud)
+    @solicitud = solicitud
+    @greeting = "Hola"
+        mail(to: get_usuario(solicitud.vendedor_id).correo, subject: 'solicitud rechazada')
+    end
+    def solicitud_terminar(solicitud)
+    @solicitud = solicitud
+    @greeting = "Hola"
+        mail(to: get_usuario(solicitud.vendedor_id).correo, subject: 'solicitud terminada')
+    end
+    def solicitud_entregar(solicitud)
+    @solicitud = solicitud
+    @greeting = "Hola"
+        mail(to: get_usuario(solicitud.vendedor_id).correo, subject: 'solicitud entregada')
+    end
 end

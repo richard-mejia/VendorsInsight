@@ -81,15 +81,15 @@
 
       <p>
         <strong><font size="5">Estado:</font></strong>
-        <font size="5"><% if solicitud.estado == 0 %>
+        <font size="5"><% if @solicitud.estado == 0 %>
 	      <%=	 "pendiente"%>
-          <% elsif solicitud.estado == 1 %>
+          <% elsif @solicitud.estado == 1 %>
           <%=	 "aceptado"%>
-          <% elsif solicitud.estado == 2 %>
+          <% elsif @solicitud.estado == 2 %>
           <%=	 "rechazado"%>
-          <% elsif solicitud.estado == 3 %>
+          <% elsif @solicitud.estado == 3 %>
           <%=	 "terminado"%>
-          <% elsif solicitud.estado == 4 %>
+          <% elsif @solicitud.estado == 4 %>
           <%=	 "entregado"%>
                          <% end %></font>
       </p>

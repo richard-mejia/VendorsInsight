@@ -123,12 +123,8 @@
                          <%= "pendiente" %>
                          <% end %></font>
       </p>
-          <button class="btn aceptar" type="button">
-           Aceptar
-            </button>&nbsp; &nbsp; &nbsp;
-          <button class="btn rechazar" type="button">
-           Rechazar
-            </button>
+      <%= link_to 'aceptar', aceptar_solicitud_path(@solicitud), method: :aceptar, data: { confirm: 'Está seguro que desea aceptar la solicitud?' } ,class: 'btn aceptar' %>&nbsp; &nbsp; &nbsp;
+      <%= link_to 'rechazar', rechazar_solicitud_path(@solicitud), method: :rechazar, data: { confirm: 'Está seguro que desea rechazar la solicitud?' }, class: 'btn rechazar' %>
 <p id="notice"><%= notice %></p>           
       </div>
                                      

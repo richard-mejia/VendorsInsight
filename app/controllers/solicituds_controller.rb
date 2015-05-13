@@ -112,7 +112,7 @@ class SolicitudsController < ApplicationController
     unless  @solicitud.update(estado: 2)
       flash[:error] = "No se pudo actualizar el estado"
     else
-      flash[:success] = "Solicitud aceptada"
+      flash[:success] = "Solicitud rechazada"
     end
     redirect_to solicitudes_pendientes_jefe_disenador_url
 

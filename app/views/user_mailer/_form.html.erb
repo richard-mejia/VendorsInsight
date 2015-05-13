@@ -81,7 +81,8 @@
 <% if @solicitud.archivo_id != nil %>
 <p>
   <strong><font size="5">imagen:</font></strong>
-  <a  href= <%= get_attachment(@solicitud.archivo_id).url %> >click ver imagen</a>
+  <% a = get_attachment(@solicitud.archivo_id).url %>
+  <a  href= '<%= a %>' > click ver imagen</a>
 </p>
 <% end %>
 

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get    'solicitudes_administrador' => 'usuarios#solicitudes_administrador'
   get    'ver_solicitud_disenador/:id' => 'solicituds#ver_solicitud_disenador', as: 'solicitud_disenador'
   get    'solicitudes_disenador' => 'solicituds#solicitudes_disenador'
+  get    'index_disenador' => 'usuarios#index_disenador'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

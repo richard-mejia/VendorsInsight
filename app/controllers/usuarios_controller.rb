@@ -21,6 +21,14 @@ class UsuariosController < ApplicationController
 
     @usuarios = Usuario.all
   end
+  def index_disenador
+      unless authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
+    @usuarios = Usuario.all
+  end
 
   # GET /usuarios/1
   # GET /usuarios/1.json

@@ -73,10 +73,14 @@
 ['Dama','Dama'],['Niña','Niña'],['Niño','Niño'],['Hombre','Hombre']] %>
   </div><br>
   <div class="select">
-    <%= f.label :Tipo %><a>*</a><br>
-    <%= f.select :tipo,
-[['Seleccione tipo de tela',''],
-['Indigo','Indigo'],['Natural','Natural'],['Melinda','Melinda'],['strech','strech']] %>
+      <%= f.label :Tipo_tela%><a> *</a><br> 
+      <%= f.collection_select(:tipo, Tela.all, :tipo_tela, :tipo_tela) %>
+  </div><br>
+  <div class="select">
+    <%= f.label :Tipo_pantalón %><a>*</a><br>
+    <%= f.select :tipo_pantalon,
+[['Seleccione una Opción',''],
+    ['Vaquero','Vaquero'],['Jeggins','Jeggins'],['2Botones','2Botones'],['3Botones','3Botones'],['Short','Short'],['Torero','Torero']] %>
   </div><br>
   <div class="field">
     <%= f.label :set_tallas, class: 'check_box' %><br>

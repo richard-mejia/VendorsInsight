@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
 
 
+  resources :telas
+
   resources :solicituds
   get    '/ver_solicitud_disenador/:id', to:  'solicituds#ver_solicitud_disenador'
   resources :usuarios

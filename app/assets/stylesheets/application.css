@@ -64,6 +64,30 @@
     width:140px;
     height: 30px;
 }
+
+.terminar{
+    background-color: #CCFFFF !important;
+	color: #000000 !important;
+	outline:0 !important;
+    width:140px;
+    height: 30px;
+}
+
+.entregar{
+    background-color: #CCFFE5 !important;
+	color: #000000 !important;
+	outline:0 !important;
+    width:140px;
+    height: 30px;
+}
+
+.tela{
+    background-color: #E62323 !important;
+	color: #FFFFFF !important;
+	width:180px;
+    height: 35px;
+    outline:0 !important;
+}
  
 .btn:active{ 
 outline: 0; 

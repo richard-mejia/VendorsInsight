@@ -78,9 +78,9 @@
           <%=	 "entregado"%>
 	<% end %>&nbsp; &nbsp;
         <% if solicitud.estado == 1 %>
-          <%= link_to 'terminar', terminar_solicitud_path(solicitud), method: :terminar, data: { confirm: 'Está seguro que desea cambiar de estado en la solicitud?' }, class: 'btn rechazar' %>
+          <%= link_to 'terminar', terminar_solicitud_path(solicitud), method: :terminar, data: { confirm: 'Está seguro que desea cambiar de estado en la solicitud?' }, class: 'btn terminar' %>
           <% elsif solicitud.estado == 3 %>
-          <%= link_to 'entregar', entregar_solicitud_path(solicitud), method: :entregar, data: { confirm: 'Está seguro que desea cambiar de estado en la solicitud?' }, class: 'btn rechazar' %>    
+          <%= link_to 'entregar', entregar_solicitud_path(solicitud), method: :entregar, data: { confirm: 'Está seguro que desea cambiar de estado en la solicitud?' }, class: 'btn entregar' %>    
       <% end %>
       </td>
       

@@ -36,13 +36,18 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-          <hr>
+          <br>
+          <br>
+          <br>
+         
           <center>
           <%= form_for(@attachment) do |f| %>
   
   <div class="form-group">
     <%= f.file_field :archivo %>
   </div>
+              <br>
+              <br>
   <div class="actions">
     <%= f.submit "Subir archivo", class: "btn be-green white" %>
   </div>

@@ -56,7 +56,7 @@
     <% @solicitudes.each do |solicitud| %>
       <tr>
         <td HEIGHT="40"><%= solicitud.id%></td>
-        <td><%= solicitud.vendedor_id %></td>
+       <td><%= get_usuario(solicitud.vendedor_id).nombre %>&nbsp; <%= get_usuario(solicitud.vendedor_id).apellido %></td>
         <td><%= solicitud.cliente %></td>
         <td><%= solicitud.cantidad %></td>
         <td><% if solicitud.estado == 0 %>

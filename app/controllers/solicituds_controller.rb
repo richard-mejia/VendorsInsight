@@ -169,6 +169,6 @@ class SolicitudsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def solicitud_params
-      params.require(:solicitud).permit(:fecha,:vendedor_id, :cliente, :disenador_id, :linea, :tipo, :set_tallas, :contramuestra, :referencia, :talla, :muestra_tela, :nombre_tela, :adjunto, :cantidad, :especificacion, :estado)
+      params.require(:solicitud).permit(:fecha,:vendedor_id, :cliente, :disenador_id, :linea, :tipo, :set_tallas, :contramuestra, :referencia, :talla, :muestra_tela, :nombre_tela, :adjunto, :cantidad, :especificacion, :estado, :tipo_pantalon)
     end
   end

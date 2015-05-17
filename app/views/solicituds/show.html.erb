@@ -48,7 +48,9 @@
     
       <p>
         <strong><font size="5">Diseñador:</font></strong>
-        <font size="5"><%= @solicitud.disenador_id %></font>
+	<% if get_usuario(@solicitud.disenador_id) != nil %>
+        <font size="5"><%= get_usuario(@solicitud.disenador_id).nombre %></font>
+	<% end %>
       </p>
 
       <p>

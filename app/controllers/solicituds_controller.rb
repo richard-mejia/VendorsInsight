@@ -24,10 +24,21 @@ class SolicitudsController < ApplicationController
   end
     
   def ver_solicitud_disenador
+     if authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+    elsif
+       authorize_page(session[:tipo_usuario],"Diseñador")
+    else
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
   end
   
   def solicitudes_pendientes_jefe_disenador
-    unless authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+    if authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+    elsif
+      authorize_page(session[:tipo_usuario],"Diseñador")
+    else
       flash[:error] = "Acceso no autorizado"
       redirect_to login_path
       false
@@ -42,10 +53,19 @@ class SolicitudsController < ApplicationController
 
   # GET /solicituds/1/edit
   def edit
+    if authorize_page(session[:tipo_usuario],"Nadie")
+    else
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
   end
 
-    def solicitudes_disenador
-        unless authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+  def solicitudes_disenador
+    if authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+    elsif
+      authorize_page(session[:tipo_usuario],"Diseñador")
+    else
       flash[:error] = "Acceso no autorizado"
       redirect_to login_path
       false
@@ -67,17 +87,17 @@ class SolicitudsController < ApplicationController
     @solicitud.vendedor_id = session[:usuario_id]
     @solicitud.estado = 0
     @solicitud.fecha = Date.today
-      if session[:archivo_id] != nil
-          @solicitud.adjunto = true
-          @solicitud.archivo_id = session[:archivo_id]
-          session[:archivo_id] = nil
-      end   
+    if session[:archivo_id] != nil
+      @solicitud.adjunto = true
+      @solicitud.archivo_id = session[:archivo_id]
+      session[:archivo_id] = nil
+    end   
     #@archivo = Attachment.new(attachment_params)
-
+    
     respond_to do |format|
       if @solicitud.save
-          UserMailer.solicitud_creada(session[:correo], @solicitud).deliver_now
-          UserMailer.solicitud_creada_disenador(@disenador.correo,@solicitud).deliver_now
+        UserMailer.solicitud_creada(session[:correo], @solicitud).deliver_now
+        UserMailer.solicitud_creada_disenador(@disenador.correo,@solicitud).deliver_now
         format.html { redirect_to @solicitud, notice: 'Solicitud realizada exitosamente.' }
         format.json { render :show, status: :created, location: @solicitud }         
       else
@@ -86,10 +106,16 @@ class SolicitudsController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /solicituds/1
   # PATCH/PUT /solicituds/1.json
   def update
+    if authorize_page(session[:tipo_usuario],"Nadie")
+    else
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
     respond_to do |format|
       if @solicitud.update(solicitud_params)
         format.html { redirect_to @solicitud, notice: 'Solicitud modificada exitosamente.' }
@@ -102,17 +128,33 @@ class SolicitudsController < ApplicationController
   end
   
   def aceptar
+    if authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+    elsif
+      authorize_page(session[:tipo_usuario],"Diseñador")
+    else
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
     unless  @solicitud.update(estado: 1)
       flash[:error] = "No se pudo actualizar el estado"
     else
       flash[:success] = "Solicitud aceptada"
-        UserMailer.solicitud_aceptar(@solicitud).deliver_now
+      UserMailer.solicitud_aceptar(@solicitud).deliver_now
     end
     redirect_to solicitudes_pendientes_jefe_disenador_url
     
   end
 
   def rechazar
+    if authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+    elsif
+      authorize_page(session[:tipo_usuario],"Diseñador")
+    else
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
     unless  @solicitud.update(estado: 2)
       flash[:error] = "No se pudo actualizar el estado"
     else
@@ -120,30 +162,44 @@ class SolicitudsController < ApplicationController
         UserMailer.solicitud_rechazar(@solicitud).deliver_now
     end
     redirect_to solicitudes_pendientes_jefe_disenador_url
-
   end
-    
-    def terminar
-        unless  @solicitud.update(estado: 3)
+  
+  def terminar
+    if authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+    elsif
+      authorize_page(session[:tipo_usuario],"Diseñador")
+    else
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
+    end
+    unless  @solicitud.update(estado: 3)
       flash[:error] = "No se pudo actualizar el estado"
     else
-            flash[:success] = "Solicitud actualizada a estado terminado"
-            UserMailer.solicitud_terminar(@solicitud).deliver_now
+      flash[:success] = "Solicitud actualizada a estado terminado"
+      UserMailer.solicitud_terminar(@solicitud).deliver_now
     end
-        
     redirect_to solicitudes_disenador_url
+  end
+  
+  def entregar
+    if authorize_page(session[:tipo_usuario],"Diseñador Jefe")
+    elsif
+      authorize_page(session[:tipo_usuario],"Diseñador")
+    else
+      flash[:error] = "Acceso no autorizado"
+      redirect_to login_path
+      false
     end
-    
-    def entregar
-        unless  @solicitud.update(estado: 4)
+    unless  @solicitud.update(estado: 4)
       flash[:error] = "No se pudo actualizar el estado"
     else
-            flash[:success] = "Solicitud actualizada a estado entregado"
-            UserMailer.solicitud_entregar(@solicitud).deliver_now
+      flash[:success] = "Solicitud actualizada a estado entregado"
+      UserMailer.solicitud_entregar(@solicitud).deliver_now
     end
     redirect_to solicitudes_disenador_url
-    end
-
+  end
+  
 
   # DELETE /solicituds/1
   # DELETE /solicituds/1.json

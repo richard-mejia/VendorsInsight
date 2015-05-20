@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class UserMailer < ApplicationMailer
     default from: 'from@example.com'
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -20,7 +21,8 @@ class UserMailer < ApplicationMailer
     @greeting = "Hola"
         mail(to: get_usuario(solicitud.vendedor_id).correo, subject: 'solicitud aceptada')
     end
-    def solicitud_rechazar(solicitud)
+    def solicitud_rechazar(solicitud,comentario)
+    @comentario = comentario
     @solicitud = solicitud
     @greeting = "Hola"
         mail(to: get_usuario(solicitud.vendedor_id).correo, subject: 'solicitud rechazada')

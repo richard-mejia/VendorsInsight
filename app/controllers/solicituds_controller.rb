@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 class SolicitudsController < ApplicationController
  
-    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy, :ver_solicitud_disenador, :aceptar, :rechazar, :terminar, :entregar]
+    before_filter :set_solicitud, only: [:show, :edit, :update, :destroy, :ver_solicitud_disenador, :aceptar, :rechazar, :terminar, :entregar, :motivo]
     before_filter :authorize
     
 
@@ -145,6 +145,10 @@ class SolicitudsController < ApplicationController
     redirect_to solicitudes_pendientes_jefe_disenador_url
     
   end
+  
+  def motivo
+    
+  end
 
   def rechazar
     if authorize_page(session[:tipo_usuario],"Diseñador Jefe")
@@ -159,7 +163,7 @@ class SolicitudsController < ApplicationController
       flash[:error] = "No se pudo actualizar el estado"
     else
       flash[:success] = "Solicitud rechazada"
-        UserMailer.solicitud_rechazar(@solicitud).deliver_now
+        UserMailer.solicitud_rechazar(@solicitud,params[:comentario]).deliver_now
     end
     redirect_to solicitudes_pendientes_jefe_disenador_url
   end
@@ -224,6 +228,7 @@ class SolicitudsController < ApplicationController
     
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    
     def solicitud_params
       params.require(:solicitud).permit(:fecha,:vendedor_id, :cliente, :disenador_id, :linea, :tipo, :set_tallas, :contramuestra, :referencia, :talla, :muestra_tela, :nombre_tela, :adjunto, :cantidad, :especificacion, :estado, :tipo_pantalon)
     end

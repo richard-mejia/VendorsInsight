@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :usuarios
   resources :attachments
   post 'aceptar_solicitud/:id' => 'solicituds#aceptar', as: 'aceptar_solicitud'
+  get  'motivo_rechazo/:id' => 'solicituds#motivo', as: 'motivo'
   post 'rechazar_solicitud/:id' => 'solicituds#rechazar', as: 'rechazar_solicitud'
   post 'terminar_solicitud/:id' => 'solicituds#terminar', as: 'terminar_solicitud'             
   post 'entregar_solicitud/:id' => 'solicituds#entregar', as: 'entregar_solicitud'

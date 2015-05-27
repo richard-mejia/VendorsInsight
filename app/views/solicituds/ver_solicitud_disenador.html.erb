@@ -113,6 +113,12 @@
                          <%= "No" %>
                          <% end %></font>
       </p>
+          <% if @attachment != nil %>
+      <p>
+        <strong><font size="5">imagen:</font></strong>
+           <a href=<%= @attachment.url %>>click ver imagen</a>
+      </p>
+          <% end %>
 
       <p>
         <strong><font size="5">Cantidad:</font></strong>

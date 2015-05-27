@@ -83,12 +83,24 @@
     ['Vaquero','Vaquero'],['Jeggins','Jeggins'],['2Botones','2Botones'],['3Botones','3Botones'],['Short','Short'],['Torero','Torero']] %>
   </div><br>
   <div class="field">
-    <%= f.label :set_tallas, class: 'check_box' %><br>
-    <%= f.check_box :set_tallas%>
+    <%= f.label :set_tallas1, class: 'check_box' %><br>
+      <div class = "onoffswitch">
+    <%= f.check_box :set_tallas, class: 'onoffswitch-checkbox'%>
+      <label class="onoffswitch-label" for="solicitud_set_tallas">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+      </div>
   </div>
   <div class="field">
     <%= f.label :contramuestra, class: 'check_box'  %><br>
-    <%= f.check_box :contramuestra %>
+    <div class = "onoffswitch">
+        <%= f.check_box :contramuestra, class: 'onoffswitch-checkbox'%>
+      <label class="onoffswitch-label" for="solicitud_contramuestra">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+      </div>
   </div>
   
   <div class="select">
@@ -99,7 +111,13 @@
   </div><br>
   <div class="field">
     <%= f.label :muestra_tela, class: 'check_box' %><br>
-    <%= f.check_box :muestra_tela %>
+    <div class = "onoffswitch">
+        <%= f.check_box :muestra_tela, class: 'onoffswitch-checkbox'%>
+      <label class="onoffswitch-label" for="solicitud_muestra_tela">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+      </div>
   </div>
   <div class="field">
     <%= f.label :nombre_tela%><br>

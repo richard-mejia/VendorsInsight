@@ -107,6 +107,12 @@
                          <%= "No" %>
                          <% end %></font>
       </p>
+          <% if @attachment != nil %>
+      <p>
+        <strong><font size="5">imagen:</font></strong>
+           <a href=<%= @attachment.url %>>click ver imagen</a>
+      </p>
+          <% end %>
 
       <p>
         <strong><font size="5">Cantidad:</font></strong>
@@ -117,12 +123,7 @@
         <strong><font size="5">Especificaciones:</font></strong>
         <font size="5"><%= @solicitud.especificacion %></font>
       </p>
-          <% if @attachment != nil %>
-      <p>
-        <strong><font size="5">imagen:</font></strong>
-           <a href=<%= @attachment.url %>>click ver imagen</a>
-      </p>
-          <% end %>
+          
 
       <p>
         <strong><font size="5">Estado:</font></strong>
@@ -138,6 +139,14 @@
           <%=	 "entregado"%>
                          <% end %></font>
       </p>
+          
+          <%if session[:tipo_usuario].eql?("Diseñador Jefe") %>
+          <% if @solicitud.estado == 1 %>
+          <%= link_to 'terminar', terminar_solicitud_path(@solicitud), method: :terminar, data: { confirm: 'Está seguro que desea cambiar de estado en la solicitud?' }, class: 'btn terminar' %>
+          <% elsif @solicitud.estado == 3 %>
+          <%= link_to 'entregar', entregar_solicitud_path(@solicitud), method: :entregar, data: { confirm: 'Está seguro que desea cambiar de estado en la solicitud?' }, class: 'btn entregar' %>    
+      <% end %>
+          <% end %>
                                      
 </div> <!-- /container -->
     <!-- Bootstrap core JavaScript

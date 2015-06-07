@@ -9,9 +9,9 @@
 </p>
 
 <p>
-  <strong><font size="5">Diseñador:</font></strong>
-  <% if get_usuario(@solicitud.disenador_id) != nil %>
-  <font size="5"><%=  get_usuario(@solicitud.disenador_id).nombre %></font>
+  <strong><font size="5">Vendedor:</font></strong>
+  <% if get_usuario(@solicitud.vendedor_id) != nil %>
+  <font size="5"><%=  get_usuario(@solicitud.vendedor_id).nombre %></font>
   <% end %>
 
 <p>
@@ -27,6 +27,12 @@
 <p>
   <strong><font size="5">Tipo pantalon:</font></strong>
   <font size="5"><%= @solicitud.tipo_pantalon %></font>
+</p>
+
+
+<p>
+  <strong><font size="5">Talla:</font></strong>
+  <font size="5"><%= @solicitud.talla %></font>
 </p>
 
 <p>
